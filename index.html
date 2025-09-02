@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mon Site Vitrine</title>
+  <meta name="description" content="Bienvenue sur mon site vitrine." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="container">
+    <h1>Bienvenue sur mon site 👋</h1>
+    <p>Voici une petite présentation.</p>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>À propos</h2>
+      <p>Ce site vitrine est hébergé gratuitement avec GitHub Pages.</p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <form action="https://formsubmit.co/VOTRE_EMAIL" method="POST" class="form">
+        <input type="hidden" name="_captcha" value="false">
+        <label>Nom <input type="text" name="name" required></label>
+        <label>Email <input type="email" name="email" required></label>
+        <label>Message <textarea name="message" required></textarea></label>
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="container">
+    <small>© <span id="year"></span> Mon Site Vitrine — Tous droits réservés</small>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
