@@ -4,7 +4,7 @@ body {
   padding: 0;
   line-height: 1.6;
   background: #f8f9fa;
-  color: #212529;
+  color: #8ACE00;
 }
 .container {
   max-width: 800px;
@@ -12,7 +12,7 @@ body {
   padding: 20px;
 }
 h1, h2 {
-  color: #007BFF;
+  color: #8ACE00;
 }
 form {
   display: grid;
