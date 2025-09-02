@@ -27,15 +27,30 @@
 
     <section>
       <h2>Coucou mes vies je vous aime</h2>
-      <form action="https://formsubmit.co/lubellier@gmail.com" method="POST" class="form">
-        <input type="hidden" name="_captcha" value="false">
-        <label>Nom <input type="text" name="name" required></label>
-        <label>Email <input type="email" name="email" required></label>
-        <label>Message <textarea name="message" required></textarea></label>
-        <button type="submit">Envoyer</button>
-      </form>
-    </section>
-  </main>
+
+      
+    <form action="https://formsubmit.co/lubellier@gmail.com" method="POST" class="form">
+  <!-- Désactive le captcha FormSubmit -->
+  <input type="hidden" name="_captcha" value="false">
+
+  <!-- Redirection après envoi -->
+  <input type="hidden" name="_next" value="https://www.lucilebellier.fr/merci.html">
+
+  <label>Nom
+    <input type="text" name="name" required>
+  </label>
+
+  <label>Email
+    <input type="email" name="email" required>
+  </label>
+
+  <label>Message
+    <textarea name="message" required></textarea>
+  </label>
+
+  <button type="submit">Envoyer</button>
+</form>
+
 
   <footer class="container">
     <small>© <span id="year"></span> Tous droits réservés</small>
