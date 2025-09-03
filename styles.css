@@ -93,3 +93,64 @@ button:hover {
   .menu a { display: block; padding: 1rem; color:#000; }
   .menu.open { display: flex; }
 }
+
+/* --- MENU HAMBURGER --- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Bouton hamburger (3 barres) */
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  padding: 0;
+  z-index: 1100; /* au-dessus du menu */
+}
+.nav-toggle .bar {
+  height: 4px;
+  width: 100%;
+  background-color: #000;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Menu (caché par défaut) */
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 50px; /* sous le bouton */
+  left: 10px;
+  background: rgba(255,255,255,.95); /* lisible sur ton carrelage */
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+}
+.menu li { border-top: 1px solid rgba(0,0,0,.1); }
+.menu li:first-child { border-top: none; }
+.menu a {
+  display: block;
+  padding: .75rem 1.2rem;
+  color: #000;
+  text-decoration: none;
+}
+.menu a:hover { background: rgba(0,0,0,.08); }
+.menu.open { display: flex; }
+
+/* Animation : hamburger → croix quand ouvert */
+.nav-toggle.open .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav-toggle.open .bar:nth-child(2) { opacity: 0; }
+.nav-toggle.open .bar:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+
