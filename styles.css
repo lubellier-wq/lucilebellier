@@ -21,7 +21,6 @@ body {
   max-width: 800px;
   margin: auto;
   padding: 20px;
-  /* optionnel : fond semi-transparent pour la lisibilité sur l'image */
   border-radius: 12px;
 }
 
