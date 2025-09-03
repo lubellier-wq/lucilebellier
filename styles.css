@@ -22,7 +22,7 @@ body {
 
 /* Les titres utilisent du gras : si tu n'as pas le fichier Bold, le navigateur "simule" le gras. */
 h1, h2 { 
-  color: #8ACE00; 
+  color: #FFFFFF; 
   font-weight: 700;        /* gras — aura l’air parfait si tu ajoutes la fonte Bold */
 }
 
