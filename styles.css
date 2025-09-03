@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Inconsolata.ttf';
+  font-family: 'Inconsolata';
   src: url('Inconsolata.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
@@ -8,7 +8,7 @@
 
 /* --- STYLE GLOBAL --- */
 body {
-  font-family: 'MaPolicePerso', sans-serif;
+  font-family: 'Inconsolata', sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
