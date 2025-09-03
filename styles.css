@@ -22,7 +22,6 @@ body {
   margin: auto;
   padding: 20px;
   /* optionnel : fond semi-transparent pour la lisibilité sur l'image */
-  background: rgba(0, 0, 0, 0.25);
   border-radius: 12px;
 }
 
