@@ -4,11 +4,17 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  /* image de fond du site */
-  background: url("fondcarrelage.jpg") repeat center center fixed;
-  background-size: 200px 200px; /* ajuste la taille des carreaux */
-  color: #FFFFFF; /* texte global en blanc pour contraster sur le fond rouge */
+
+  /* Image de fond : fichier à la racine, nom EXACT : fondcarrelage.jpg */
+  background-image: url("./fondcarrelage.jpg");
+  background-repeat: repeat;
+  background-position: center center;
+  background-size: 200px 200px;   /* ajuste la taille des carreaux */
+  /* background-attachment: fixed;  ← remets-le plus tard si tu veux l’effet fixe */
+  
+  color: #FFFFFF;
 }
+
 
 /* Conteneur du contenu */
 .container {
