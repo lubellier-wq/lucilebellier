@@ -4,14 +4,11 @@
   font-weight: normal;
   font-style: normal;
 }
-body {
-  font-family: 'MaPolicePerso', sans-serif;
-}
 
 
 /* --- STYLE GLOBAL --- */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'MaPolicePerso', sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
