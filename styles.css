@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'Inconsolata.ttf';
+  src: url('Inconsolata.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: 'MaPolicePerso', sans-serif;
+}
+
+
 /* --- STYLE GLOBAL --- */
 body {
   font-family: Arial, sans-serif;
