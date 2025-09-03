@@ -5,98 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lucile Bellier</title>
   <meta name="description" content="Bienvenue sur mon site vitrine." />
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=4">
 
+  <!-- Scroll fluide -->
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
 <body>
-  <!-- MENU HAMBURGER EN HAUT À GAUCHE -->
-<header class="site-header">
-  <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
 
-  <ul id="menu" class="menu" role="menu">
-    <li><a href="#vote" role="menuitem">Vote</a></li>
-    <li><a href="#apropos" role="menuitem">À propos</a></li>
-    <li><a href="#projets" role="menuitem">Projets</a></li>
-    <li><a href="#contact" role="menuitem">Contact</a></li>
-  </ul>
-</header>
+  <!-- MENU HAMBURGER -->
+  <header class="site-header">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
 
-  <main class="container">
-  <section id="vote"><h2>Vote</h2></section>
-  <section id="apropos"><h2>À propos</h2></section>
-  <section id="projets"><h2>Projets</h2></section>
-  <section id="contact"><h2>Contact</h2>
-    <!-- ton formulaire ici -->
-  </section>
-</main>
+    <ul id="menu" class="menu" role="menu">
+      <li><a href="#vote" role="menuitem">Vote</a></li>
+      <li><a href="#apropos" role="menuitem">À propos</a></li>
+      <li><a href="#projets" role="menuitem">Projets</a></li>
+      <li><a href="#contact" role="menuitem">Contact</a></li>
+    </ul>
+  </header>
 
-
+  <!-- EN-TÊTE -->
   <header class="container">
-    <h1>Lucile Bellier </h1>
+    <h1>Lucile Bellier</h1>
     <p>prout.</p>
   </header>
 
+  <!-- CONTENU PRINCIPAL -->
   <main class="container">
-    <section>
-      <h2></h2>
+
+    <!-- SECTION VOTE -->
+    <section id="vote" aria-labelledby="vote-title">
+      <h2 id="vote-title">Vote</h2>
+      <!-- Colle ici ton iframe Google Forms -->
+    </section>
+
+    <!-- SECTION À PROPOS -->
+    <section id="apropos" aria-labelledby="apropos-title">
+      <h2 id="apropos-title">À propos</h2>
       <p>.</p>
     </section>
 
-    <section>
-  <h2>Monique la reine</h2>
-  <img src="IMG_3040.jpeg" alt="Monique" width="250" style="border-radius: 12px;">
-</section>
+    <!-- SECTION PROJETS -->
+    <section id="projets" aria-labelledby="projets-title">
+      <h2 id="projets-title">Monique la reine</h2>
+      <img src="IMG_3040.jpeg" alt="Monique" width="250" style="border-radius: 12px;">
+      <h3 style="margin-top:1rem;">OMG j'ai réussi à coder un site !!!</h3>
+      <p>Oui il est encore bien moche mais c'est quand même trop stylé, non ? 😄</p>
+    </section>
 
+    <!-- SECTION CONTACT -->
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
 
-    <section>
-      <h2>OMG j'ai réussi un coder un site !!! Oui il est encore bien moche mais c'est quand même trop stylé non ?</h2>
+      <form action="https://formsubmit.co/lubellier@gmail.com" method="POST" class="form">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://www.lucilebellier.fr/merci.html">
 
-    
+        <label>Nom
+          <input type="text" name="name" required>
+        </label>
 
+        <label>Email
+          <input type="email" name="email" required>
+        </label>
 
- <section>
-      <h2>CONTACT</h2>
-      
-    <form action="https://formsubmit.co/lubellier@gmail.com" method="POST" class="form">
-  <!-- Désactive le captcha FormSubmit -->
-  <input type="hidden" name="_captcha" value="false">
+        <label>Message
+          <textarea name="message" required></textarea>
+        </label>
 
-  <!-- Redirection après envoi -->
-  <input type="hidden" name="_next" value="https://www.lucilebellier.fr/merci.html">
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
 
-  <label>Nom
-    <input type="text" name="name" required>
-  </label>
+  </main>
 
-  <label>Email
-    <input type="email" name="email" required>
-  </label>
-
-  <label>Message
-    <textarea name="message" required></textarea>
-  </label>
-
-  <button type="submit">Envoyer</button>
-</form>
-
-
+  <!-- PIED DE PAGE -->
   <footer class="container">
     <small>© <span id="year"></span> Tous droits réservés</small>
   </footer>
 
+  <!-- SCRIPT -->
   <script src="script.js" defer></script>
 </body>
-   <header class="site-header">
-  <nav class="nav">
-    <a class="logo" href="/">Lucile Bellier</a>
-
-    <!-- Bouton hamburger -->
-    <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">☰</button>
-
-   
-
 </html>
