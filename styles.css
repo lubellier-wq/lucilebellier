@@ -54,3 +54,42 @@ button {
 button:hover {
   background: #e0b12a; /* hover cohérent avec ta couleur principale */
 }
+/* ---- MENU ---- */
+.site-header { position: sticky; top: 0; z-index: 1000; }
+.nav {
+  display: flex; align-items: center; gap: 1rem;
+  max-width: 1100px; margin: 0 auto; padding: .75rem 1rem;
+  background: rgba(255,255,255,.9); /* lisible sur ton carrelage */
+  backdrop-filter: blur(6px);
+  border-radius: 0 0 12px 12px;
+}
+
+/* Logo */
+.logo { font-weight: 700; text-decoration: none; color: #000; }
+
+/* Liste du menu */
+.menu { list-style: none; display: flex; gap: 1rem; margin-left: auto; padding: 0; }
+.menu a { text-decoration: none; color: #000; padding: .5rem .75rem; border-radius: 8px; }
+.menu a:hover { background: rgba(0,0,0,.06); }
+
+/* Bouton hamburger (masqué sur grand écran) */
+.nav-toggle {
+  margin-left: auto; font-size: 1.25rem; line-height: 1;
+  padding: .4rem .6rem; border: 1px solid rgba(0,0,0,.15);
+  border-radius: 8px; background: white; cursor: pointer; display: none;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .nav { border-radius: 0; }
+  .nav-toggle { display: inline-block; }
+  .menu {
+    position: absolute; left: 0; right: 0; top: 56px;
+    display: none; flex-direction: column; gap: 0;
+    background: rgba(255,255,255,.96); backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(0,0,0,.08);
+  }
+  .menu li { border-top: 1px solid rgba(0,0,0,.06); }
+  .menu a { display: block; padding: 1rem; color:#000; }
+  .menu.open { display: flex; }
+}
