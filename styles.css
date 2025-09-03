@@ -118,3 +118,24 @@ button:hover {
 
 /* Décalage pour éviter que le scroll coupe les titres */
 section { scroll-margin-top: 70px; }
+
+/* --- HERO EN-TÊTE --- */
+.hero {
+  text-align: center;
+  margin-top: 80px; /* espace sous le menu hamburger */
+  margin-bottom: 60px;
+}
+
+.hero-title {
+  font-size: 3rem; /* gros titre */
+  margin: 0;
+  color: #FFFFFF; /* blanc sur ton fond carrelage */
+  letter-spacing: 2px; /* espace entre les lettres pour un effet chic */
+}
+
+.hero-subtitle {
+  font-size: 1.5rem; /* plus petit que le titre */
+  margin: 10px 0 0;
+  color: #F4C430; /* doré (accord avec ton bouton) */
+}
+
