@@ -1,45 +1,53 @@
+/* --- STYLE GLOBAL --- */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background: body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  background: url("FondCarrelage") repeat center center fixed;
-  background-size: 200px 200px; 
-  color: #212529;
-};
-  color: #FFFFFF;
+  /* image de fond du site */
+  background: url("fondcarrelage.jpg") repeat center center fixed;
+  background-size: 200px 200px; /* ajuste la taille des carreaux */
+  color: #FFFFFF; /* texte global en blanc pour contraster sur le fond rouge */
 }
+
+/* Conteneur du contenu */
 .container {
   max-width: 800px;
   margin: auto;
   padding: 20px;
+  /* optionnel : fond semi-transparent pour la lisibilité sur l'image */
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
 }
+
+/* Titres */
 h1, h2 {
   color: #8ACE00;
 }
+
+/* Formulaire */
 form {
   display: grid;
   gap: 10px;
   margin-top: 15px;
 }
+
 input, textarea {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
+/* Boutons */
 button {
   background: #F4C430;
-  color: white;
+  color: #ffffff;
   border: none;
   padding: 10px;
   border-radius: 4px;
   cursor: pointer;
 }
+
 button:hover {
-  background: #0056b3;
+  background: #e0b12a; /* hover cohérent avec ta couleur principale */
 }
