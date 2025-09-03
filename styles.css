@@ -9,7 +9,7 @@ body {
   padding: 0;
   line-height: 1.6;
   background: url("FondCarrelage") repeat center center fixed;
-  background-size: 200px 200px; /* ajuste la taille des carreaux */
+  background-size: 200px 200px; 
   color: #212529;
 };
   color: #FFFFFF;
