@@ -7,16 +7,6 @@
   font-display: swap;      /* évite le flash sans police */
 }
 
-/* Si TU AS un fichier gras (Inconsolata-Bold.ttf), décommente et utilise ceci :
-@font-face {
-  font-family: 'Inconsolata';
-  src: url('./Inconsolata-Bold.ttf?v=1') format('truetype');
-  font-weight: 700;        /* gras réel */
-  font-style: normal;
-  font-display: swap;
-}
-*/
-
 body {
   font-family: 'Inconsolata', sans-serif;
   margin: 0;
