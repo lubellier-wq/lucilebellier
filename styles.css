@@ -1,39 +1,41 @@
+/* Police locale Inconsolata (fichier à la racine) */
 @font-face {
   font-family: 'Inconsolata';
-  src: url('Inconsolata.ttf') format('truetype');
-  font-weight: normal;
+  src: url('./Inconsolata.ttf?v=1') format('truetype');
+  font-weight: 400;        /* poids normal */
   font-style: normal;
+  font-display: swap;      /* évite le flash sans police */
 }
 
+/* Si TU AS un fichier gras (Inconsolata-Bold.ttf), décommente et utilise ceci :
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('./Inconsolata-Bold.ttf?v=1') format('truetype');
+  font-weight: 700;        /* gras réel */
+  font-style: normal;
+  font-display: swap;
+}
+*/
 
-/* --- STYLE GLOBAL --- */
 body {
   font-family: 'Inconsolata', sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
 
-  /* Image de fond : adapte le nom EXACT de ton fichier */
   background-image: url("./fondcarrelage.jpg");
   background-repeat: repeat;
   background-position: center center;
   background-size: 200px 200px;
-  /* background-attachment: fixed;  <- tu peux le remettre si tu veux effet fixe */
-  
   color: #FFFFFF;
 }
 
-/* Conteneur du contenu */
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
+/* Les titres utilisent du gras : si tu n'as pas le fichier Bold, le navigateur "simule" le gras. */
+h1, h2 { 
+  color: #8ACE00; 
+  font-weight: 700;        /* gras — aura l’air parfait si tu ajoutes la fonte Bold */
 }
 
-/* Titres */
-h1, h2 {
-  color: #8ACE00;
-}
 
 /* Formulaire */
 form {
