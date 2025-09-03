@@ -5,16 +5,15 @@ body {
   padding: 0;
   line-height: 1.6;
 
-  /* Image de fond : fichier à la racine, nom EXACT : fondcarrelage.jpg */
+  /* Image de fond : adapte le nom EXACT de ton fichier */
   background-image: url("./fondcarrelage.jpg");
   background-repeat: repeat;
   background-position: center center;
-  background-size: 200px 200px;   /* ajuste la taille des carreaux */
-  /* background-attachment: fixed;  ← remets-le plus tard si tu veux l’effet fixe */
+  background-size: 200px 200px;
+  /* background-attachment: fixed;  <- tu peux le remettre si tu veux effet fixe */
   
   color: #FFFFFF;
 }
-
 
 /* Conteneur du contenu */
 .container {
@@ -34,64 +33,21 @@ form {
   gap: 10px;
   margin-top: 15px;
 }
-
 input, textarea {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-
-/* Boutons */
 button {
   background: #F4C430;
-  color: #ffffff;
+  color: white;
   border: none;
   padding: 10px;
   border-radius: 4px;
   cursor: pointer;
 }
-
 button:hover {
-  background: #e0b12a; /* hover cohérent avec ta couleur principale */
-}
-/* ---- MENU ---- */
-.site-header { position: sticky; top: 0; z-index: 1000; }
-.nav {
-  display: flex; align-items: center; gap: 1rem;
-  max-width: 1100px; margin: 0 auto; padding: .75rem 1rem;
-  background: rgba(255,255,255,.9); /* lisible sur ton carrelage */
-  backdrop-filter: blur(6px);
-  border-radius: 0 0 12px 12px;
-}
-
-/* Logo */
-.logo { font-weight: 700; text-decoration: none; color: #000; }
-
-/* Liste du menu */
-.menu { list-style: none; display: flex; gap: 1rem; margin-left: auto; padding: 0; }
-.menu a { text-decoration: none; color: #000; padding: .5rem .75rem; border-radius: 8px; }
-.menu a:hover { background: rgba(0,0,0,.06); }
-
-/* Bouton hamburger (masqué sur grand écran) */
-.nav-toggle {
-  margin-left: auto; font-size: 1.25rem; line-height: 1;
-  padding: .4rem .6rem; border: 1px solid rgba(0,0,0,.15);
-  border-radius: 8px; background: white; cursor: pointer; display: none;
-}
-
-/* Mobile */
-@media (max-width: 760px) {
-  .nav { border-radius: 0; }
-  .nav-toggle { display: inline-block; }
-  .menu {
-    position: absolute; left: 0; right: 0; top: 56px;
-    display: none; flex-direction: column; gap: 0;
-    background: rgba(255,255,255,.96); backdrop-filter: blur(6px);
-    border-bottom: 1px solid rgba(0,0,0,.08);
-  }
-  .menu li { border-top: 1px solid rgba(0,0,0,.06); }
-  .menu a { display: block; padding: 1rem; color:#000; }
-  .menu.open { display: flex; }
+  background: #e0b12a;
 }
 
 /* --- MENU HAMBURGER --- */
@@ -114,12 +70,12 @@ button:hover {
   cursor: pointer;
   margin: 10px;
   padding: 0;
-  z-index: 1100; /* au-dessus du menu */
+  z-index: 1100;
 }
 .nav-toggle .bar {
   height: 4px;
   width: 100%;
-  background-color: #000;
+  background-color: #000; /* couleur des barres */
   border-radius: 2px;
   transition: all 0.3s ease-in-out;
 }
@@ -134,7 +90,7 @@ button:hover {
   position: absolute;
   top: 50px; /* sous le bouton */
   left: 10px;
-  background: rgba(255,255,255,.95); /* lisible sur ton carrelage */
+  background: rgba(255,255,255,.95);
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,.15);
 }
@@ -150,7 +106,15 @@ button:hover {
 .menu.open { display: flex; }
 
 /* Animation : hamburger → croix quand ouvert */
-.nav-toggle.open .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.nav-toggle.open .bar:nth-child(2) { opacity: 0; }
-.nav-toggle.open .bar:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+.nav-toggle.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.nav-toggle.open .bar:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
 
+/* Décalage pour éviter que le scroll coupe les titres */
+section { scroll-margin-top: 70px; }
