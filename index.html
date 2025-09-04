@@ -14,21 +14,28 @@
 </head>
 <body>
 
-  <!-- MENU HAMBURGER -->
-  <header class="site-header">
-    <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
+<!-- MENU HAMBURGER — DESIGN 1 (SLIDE-IN GAUCHE) -->
+<header class="site-header">
+  <!-- bouton hamburger -->
+  <button class="nav-toggle" aria-expanded="false" aria-controls="drawer" aria-label="Ouvrir le menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
 
-    <ul id="menu" class="menu" role="menu">
-      <li><a href="#vote" role="menuitem">Vote</a></li>
-      <li><a href="#apropos" role="menuitem">À propos</a></li>
-      <li><a href="#projets" role="menuitem">Projets</a></li>
-      <li><a href="#contact" role="menuitem">Contact</a></li>
+  <!-- overlay plein écran -->
+  <div class="overlay" hidden></div>
+
+  <!-- panneau latéral -->
+  <nav id="drawer" class="drawer" aria-hidden="true">
+    <ul class="drawer-menu">
+      <li><a href="#vote">Vote</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-  </header>
+  </nav>
+</header>
 
 
   <!-- EN-TÊTE -->
