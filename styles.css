@@ -144,3 +144,13 @@ section { scroll-margin-top: 70px; }
   color: #ffffff;                          /* doré (cohérent avec ton bouton) */
   font-weight: 600;
 }
+
+/* Texte de présentation sous le sous-titre */
+.hero-text {
+  margin: 15px auto 0;
+  max-width: 600px;              /* pour ne pas avoir des lignes trop longues */
+  font-size: 0.95rem;            /* plus petit que le sous-titre */
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7); /* gris clair transparent */
+  text-align: center;
+}
