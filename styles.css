@@ -145,12 +145,13 @@ section { scroll-margin-top: 70px; }
   font-weight: 600;
 }
 
-/* Texte de présentation sous le sous-titre */
+
+
 .hero-text {
-  margin: 35px auto 0;
-  max-width: 600px;              /* pour ne pas avoir des lignes trop longues */
-  font-size: 0.95rem;            /* plus petit que le sous-titre */
+  margin: 30px auto 0;           /* ← augmente ici (30px au lieu de 15px) */
+  max-width: 600px;
+  font-size: 0.95rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.7); /* gris clair transparent */
+  color: rgba(255, 255, 255, 0.7);
   text-align: center;
 }
