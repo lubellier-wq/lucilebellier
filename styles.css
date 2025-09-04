@@ -155,3 +155,10 @@ section { scroll-margin-top: 70px; }
   color: rgba(255, 255, 255, 0.7);
   text-align: center;
 }
+
+/* --- MARGES GLOBALES DU CONTENU --- */
+main, section, footer {
+  padding-left: 5%;
+  padding-right: 5%;
+  box-sizing: border-box;
+}
