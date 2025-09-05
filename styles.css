@@ -1,182 +1,243 @@
-/* Police locale Inconsolata (fichier à la racine) */
+/**********************************************************
+  0) POLICE LOCALE (facultatif)
+  - Charge Inconsolata.ttf si le fichier est à la racine du site.
+  - Supprime ce bloc si tu ne l’utilises pas.
+**********************************************************/
 @font-face {
-  font-family: 'Inconsolata';
-  src: url('./Inconsolata.ttf?v=1') format('truetype');
-  font-weight: 400;        /* poids normal */
+  font-family: "Inconsolata";
+  src: url("./Inconsolata.ttf?v=1") format("truetype");
+  font-weight: 400;
   font-style: normal;
-  font-display: swap;      /* évite le flash sans police */
+  font-display: swap; /* affiche une police de secours en attendant le chargement */
 }
 
-body {
-  font-family: 'Inconsolata', sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
+/**********************************************************
+  1) BASE DU SITE
+  - Police, couleurs, fond carrelage, règles globales
+**********************************************************/
+* { box-sizing: border-box; }   /* padding/border inclus dans la largeur/hauteur */
 
+html { scroll-behavior: smooth; } /* défilement doux vers les ancres */
+
+body {
+  font-family: "Inconsolata", sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  color: #fff;
+
+  /* Fond carrelage */
   background-image: url("fondcarrelage.jpg");
   background-repeat: repeat;
   background-position: center center;
   background-size: 200px 200px;
-  color: #FFFFFF;
 }
 
-/* Les titres utilisent du gras : si tu n'as pas le fichier Bold, le navigateur "simule" le gras. */
-h1, h2 { 
-  color: #FFFFFF; 
-  font-weight: 700;        /* gras — aura l’air parfait si tu ajoutes la fonte Bold */
+/* Marges fluides à gauche/droite pour tout le contenu */
+main, section, footer {
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
-
-/* Formulaire */
-form {
-  display: grid;
-  gap: 10px;
-  margin-top: 15px;
-}
-input, textarea {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-button {
-  background: #F4C430;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-button:hover {
-  background: #e0b12a;
+/* Titres par défaut */
+h1, h2 {
+  color: #fff;
+  font-weight: 700; /* gras (simulé si tu n’as pas la fonte Bold) */
 }
 
-/* Bouton hamburger */
-.nav-toggle {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 50px;          /* un peu plus large */
-  height: 28px;         /* un peu plus haut */
-  margin: 20px;
-  padding: 6px;
-  background: transparent;   /* pas de fond par défaut */
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  z-index: 1101;
-  transition: background 0.2s ease;
-}
-
-/* Fond gris transparent au survol */
-.nav-toggle:hover,
-.nav-toggle:focus {
-  background: rgba(0,0,0,0.2);   /* gris foncé transparent */
-}
-
-
-/* Panneau qui glisse depuis la gauche */
-.drawer {
-  position: fixed; top: 60px; left: 10px;  /* sous le bouton, léger décalage */
-  height: 70vh; width: min(320px, 86vw);
-  background: rgba(255,255,255,.92);
-  backdrop-filter: blur(8px);
-  border-radius: 12px;
-  box-shadow: 0 12px 30px rgba(0,0,0,.25);
-  transform: translateX(-120%);  /* caché */
-  transition: transform .3s ease;
-  z-index: 1101;
-  overflow: auto;
-}
-.drawer.open { transform: translateX(0); }
-
-.drawer-menu { list-style: none; margin: 0; padding: 16px; }
-.drawer-menu li + li { margin-top: 6px; }
-.drawer-menu a {
-  display: block; padding: 14px 16px; border-radius: 10px;
-  color: #111; text-decoration: none; font-size: 1.05rem;
-}
-.drawer-menu a:hover,
-.drawer-menu a:focus {
-  background: rgba(244,196,48,.15);           /* doré clair */
-  outline: 2px solid #F4C430; outline-offset: 2px;
-}
-
-/* Accessibilité : éviter que l'ancre soit cachée par l'entête fixée */
-section { scroll-margin-top: 90px; }
-
-/* Petites largeurs : occuper plus d’espace si besoin */
-@media (max-width: 480px) {
-  .drawer { top: 56px; left: 8px; height: 72vh; width: 90vw; }
-}
-
-/* Décalage pour éviter que le scroll coupe les titres */
-section { scroll-margin-top: 70px; }
-
-/* --- HERO EN-TÊTE (force l'apparence) --- */
+/**********************************************************
+  2) ENTÊTE "HERO" (accueil)
+  - Gros titre centré + sous-titre doré + petit texte
+**********************************************************/
 .hero {
   width: 100%;
   text-align: center;
-  margin: 90px auto 60px;    /* espace sous le bouton hamburger */
-  padding: 0 16px;           /* un peu d'air sur mobile */
-  box-sizing: border-box;
+  margin: 90px auto 60px; /* espace sous le hamburger fixe */
+  padding: 0 16px;        /* confort sur mobile */
 }
 
 .hero-title {
   margin: 0;
-  font-size: clamp(2.2rem, 5vw, 3.5rem); /* gros et responsive */
+  font-size: clamp(2.2rem, 5vw, 3.5rem); /* taille responsive */
   line-height: 1.1;
-  color: #ffffff;                          /* blanc sur ton fond carrelage */
-  letter-spacing: 0.12em;                  /* léger espacement pour l'élégance */
-  text-transform: uppercase;               /* tout en MAJUSCULES */
+  letter-spacing: 0.12em;                /* léger espacement chic */
+  text-transform: uppercase;
 }
 
 .hero-subtitle {
   margin: 10px 0 0;
-  font-size: clamp(1.1rem, 3vw, 1.75rem);  /* un peu plus petit */
+  font-size: clamp(1.1rem, 3vw, 1.75rem);
   line-height: 1.3;
-  color: #ffffff;                          /* doré (cohérent avec ton bouton) */
+  color: #F4C430;        /* ✅ corrigé : doré (cohérent avec le bouton) */
   font-weight: 600;
 }
 
-
-
 .hero-text {
-  margin: 30px auto 0;           /* ← augmente ici (30px au lieu de 15px) */
+  margin: 30px auto 0;
   max-width: 600px;
   font-size: 0.95rem;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.7);
-  text-align: center;
 }
 
-/* --- MARGES GLOBALES DU CONTENU --- */
-main, section, footer {
-  padding-left: 5%;
-  padding-right: 5%;
-  box-sizing: border-box;
+/**********************************************************
+  3) MENU HAMBURGER — SLIDE-IN GAUCHE
+  - Bouton (3 barres), overlay, panneau latéral
+**********************************************************/
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
+/* 3.1 Bouton hamburger */
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 36px;    /* ✅ plus cohérent qu’un 50px large au-dessus */
+  height: 28px;
+  margin: 20px;
+  padding: 6px;
+  background: transparent; /* pas de fond par défaut */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1101;            /* au-dessus du panneau */
+  transition: background 0.2s ease;
+}
 
+/* Fond gris transparent au hover/focus */
+.nav-toggle:hover,
+.nav-toggle:focus {
+  background: rgba(0,0,0,0.2);
+}
 
-/* ===== CONTACT — carte verre dépoli ===== */
+/* 3 barres du hamburger */
+.nav-toggle .bar {
+  width: 100%;
+  height: 5px;             /* ✅ épaisseur visible */
+  background: #fff;
+  border-radius: 3px;
+  transition: transform .3s ease, opacity .3s ease;
+}
+
+/* 3.2 Overlay plein écran (derrière le panneau) */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  backdrop-filter: blur(2px);
+  z-index: 1100;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.overlay.show { opacity: 1; } /* affiché via JS */
+
+/* 3.3 Panneau (drawer) qui glisse depuis la gauche */
+.drawer {
+  position: fixed;
+  top: 60px;
+  left: 10px;                     /* léger décalage du bord */
+  height: 70vh;
+  width: min(320px, 86vw);
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  transform: translateX(-120%);   /* caché par défaut */
+  transition: transform .3s ease;
+  z-index: 1101;
+  overflow: auto;
+}
+.drawer.open { transform: translateX(0); }  /* affiché via JS */
+
+/* Liens du menu */
+.drawer-menu { list-style: none; margin: 0; padding: 16px; }
+.drawer-menu li + li { margin-top: 6px; }
+.drawer-menu a {
+  display: block;
+  padding: 14px 16px;
+  border-radius: 10px;
+  color: #111;
+  text-decoration: none;
+  font-size: 1.05rem;
+}
+.drawer-menu a:hover,
+.drawer-menu a:focus {
+  background: rgba(244,196,48,.15); /* survol doré léger */
+  outline: 2px solid #F4C430;
+  outline-offset: 2px;
+}
+
+/* Ancre propre si tu remets des #ancres un jour */
+section { scroll-margin-top: 90px; }
+
+/* Ajustement mobile du panneau */
+@media (max-width: 480px) {
+  .drawer { top: 56px; left: 8px; height: 72vh; width: 90vw; }
+}
+
+/**********************************************************
+  4) FORMULAIRES (général)
+  - Utilisé sur contact.html ; inoffensif sur l’accueil
+**********************************************************/
+form {
+  display: grid;
+  gap: 10px;
+  margin-top: 15px;
+  max-width: 560px;
+}
+input, textarea {
+  padding: 12px 14px;                     /* ✅ plus confortable que 8px */
+  border: 1px solid rgba(0,0,0,.2);       /* ✅ gris doux */
+  border-radius: 10px;                    /* ✅ arrondis cohérents */
+  background: #fff;
+  color: #111;
+  font: inherit;
+  outline: none;
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+textarea { resize: vertical; }
+input:focus, textarea:focus {
+  border-color: #F4C430;
+  box-shadow: 0 0 0 3px rgba(244,196,48,.35);
+}
+
+/* Bouton doré générique (ajoute class="btn-gold" sur le <button>) */
+.btn-gold {
+  border: none;
+  background: #F4C430;
+  color: #111;
+  font-weight: 700;
+  padding: 12px 26px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,.2);
+  transition: background .15s ease, transform .02s ease;
+}
+.btn-gold:hover { background: #e3b82a; }
+.btn-gold:active { transform: translateY(1px); }
+
+/**********************************************************
+  5) CONTACT — CARTE VERRE DÉPOLI (page contact.html)
+**********************************************************/
 .contact-wrapper {
   display: grid;
   place-items: center;
-  padding: 110px 5% 80px; /* espace sous le menu fixe */
+  padding: 110px 5% 80px;      /* espace sous le header fixe */
 }
-
 .contact-card {
   width: min(720px, 92vw);
   padding: 28px clamp(18px, 4vw, 36px);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255,255,255,.08);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255,255,255,.18);
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,.25);
   color: #fff;
 }
-
 .contact-title {
   margin: 0;
   text-align: center;
@@ -188,57 +249,19 @@ main, section, footer {
   display: block;
   width: 90px; height: 4px;
   margin: 10px auto 18px;
-  background: #F4C430; border-radius: 999px;
+  background: #F4C430;
+  border-radius: 999px;
 }
-
 .contact-intro { text-align: center; margin: 0 0 18px; opacity: .9; }
 
 .contact-form {
   margin-top: 6px;
   display: grid;
   gap: 14px;
-  width: 100%; max-width: 560px;
-  margin-left: auto; margin-right: auto;
+  width: 100%;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
 .field { display: grid; gap: 6px; }
 .field label { font-weight: 600; letter-spacing: .02em; }
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  font: inherit;
-  color: #111; background: #fff;
-  border: 1px solid rgba(0,0,0,.18);
-  border-radius: 10px;
-  padding: 12px 14px;
-  outline: none;
-  transition: box-shadow .15s ease, border-color .15s ease, transform .02s ease;
-}
-.contact-form textarea { resize: vertical; }
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #F4C430;
-  box-shadow: 0 0 0 3px rgba(244,196,48,.35);
-}
-
-/* Bouton doré */
-.btn-gold {
-  justify-self: center;
-  border: none;
-  background: #F4C430; color: #111;
-  font-weight: 700;
-  padding: 12px 26px;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: background .15s ease, transform .02s ease, box-shadow .15s ease;
-  box-shadow: 0 6px 16px rgba(0,0,0,.2);
-}
-.btn-gold:hover { background: #e3b82a; }
-.btn-gold:active { transform: translateY(1px); }
-
-/* Ajustements de page */
-.page { padding: 0; }
-section { scroll-margin-top: 90px; }
-
