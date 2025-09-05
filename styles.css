@@ -50,34 +50,38 @@ button:hover {
   background: #e0b12a;
 }
 
-/* ===== MENU HAMBURGER — SLIDE-IN GAUCHE ===== */
-.site-header {
-  position: fixed; top: 0; left: 0; z-index: 1000;
-}
-
-/* Bouton hamburger (3 barres) */
+/* Bouton hamburger */
 .nav-toggle {
-  display: flex; flex-direction: column; justify-content: space-between;
-  width: 30px; height: 22px; margin: 10px; padding: 0;
-  background: transparent; border: 0; cursor: pointer; z-index: 1101;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 36px;          /* un peu plus large */
+  height: 28px;         /* un peu plus haut */
+  margin: 10px;
+  padding: 6px;
+  background: transparent;   /* pas de fond par défaut */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1101;
+  transition: background 0.2s ease;
 }
-.nav-toggle .bar {
-  width: 100%; height: 4px; background: #fff;  /* barres blanches sur ton fond rouge */
-  border-radius: 2px; transition: transform .3s ease, opacity .3s ease;
-}
-/* anim en croix quand ouvert */
-.nav-toggle.open .bar:nth-child(1){ transform: rotate(45deg) translate(5px,6px); }
-.nav-toggle.open .bar:nth-child(2){ opacity: 0; }
-.nav-toggle.open .bar:nth-child(3){ transform: rotate(-45deg) translate(5px,-6px); }
 
-/* Overlay plein écran */
-.overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,.5);
-  backdrop-filter: blur(2px);
-  z-index: 1100;
-  opacity: 0; transition: opacity .25s ease;
+/* Fond gris transparent au survol */
+.nav-toggle:hover,
+.nav-toggle:focus {
+  background: rgba(0,0,0,0.2);   /* gris foncé transparent */
 }
-.overlay.show { opacity: 1; }
+
+/* Les 3 barres */
+.nav-toggle .bar {
+  width: 100%;
+  height: 5px;                /* plus épais (avant c’était 4px) */
+  background: #fff;           /* barres blanches */
+  border-radius: 3px;
+  transition: transform .3s ease, opacity .3s ease;
+}
+
 
 /* Panneau qui glisse depuis la gauche */
 .drawer {
