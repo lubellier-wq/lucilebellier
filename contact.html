@@ -1,55 +1,31 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — LUCILE BELLIER</title>
-  <link rel="stylesheet" href="styles.css?v=5">
-</head>
-<body>
+<main class="page contact-wrapper">
+  <section class="contact-card" aria-labelledby="contact-title">
+    <h1 id="contact-title" class="contact-title">Contact</h1>
+    <p class="contact-intro">
+      Un projet, une retouche ou une création sur mesure ? Écrivez-moi.
+    </p>
 
-<header class="site-header">
-  <button class="nav-toggle" aria-expanded="false" aria-controls="drawer" aria-label="Ouvrir le menu">
-    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-  </button>
-  <div class="overlay" hidden></div>
-  <nav id="drawer" class="drawer" aria-hidden="true">
-    <ul class="drawer-menu">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="vote.html">Vote</a></li>
-      <li><a href="apropos.html">À propos</a></li>
-      <li><a href="projets.html">Projets</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+    <form action="https://formsubmit.co/lubellier@gmail.com" method="POST" class="contact-form" novalidate>
+      <!-- FormSubmit options -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://www.lucilebellier.fr/merci.html">
 
-<main class="page">
-  <h1>Contact</h1>
-  <form action="https://formsubmit.co/lubellier@gmail.com" method="POST" class="form">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://www.lucilebellier.fr/merci.html">
+      <div class="field">
+        <label for="name">Nom</label>
+        <input id="name" name="name" type="text" required>
+      </div>
 
-    <label>Nom
-      <input type="text" name="name" required>
-    </label>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+      </div>
 
-    <label>Email
-      <input type="email" name="email" required>
-    </label>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
 
-    <label>Message
-      <textarea name="message" required></textarea>
-    </label>
-
-    <button type="submit">Envoyer</button>
-  </form>
+      <button type="submit" class="btn-gold">Envoyer</button>
+    </form>
+  </section>
 </main>
-
-<footer class="container">
-  <small>© <span id="year"></span> Tous droits réservés</small>
-</footer>
-
-<script src="script.js" defer></script>
-</body>
-</html>
