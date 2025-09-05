@@ -55,9 +55,9 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 36px;          /* un peu plus large */
+  width: 20px;          /* un peu plus large */
   height: 28px;         /* un peu plus haut */
-  margin: 10px;
+  margin: 20px;
   padding: 6px;
   background: transparent;   /* pas de fond par défaut */
   border: none;
