@@ -228,16 +228,15 @@ input:focus, textarea:focus {
   padding: 110px 5% 80px;      /* espace sous le header fixe */
 }
 .contact-card {
-  width: min(720px, 92vw);
-  padding: 28px clamp(18px, 4vw, 36px);
-  background: rgba(255,255,255,.08);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
-  color: #fff;
+  width: 100%;
+  padding: 0 5%;             /* marges latérales fluides */
+  border: none;              /* pas de bordure */
+  background: none;          /* pas de fond */
+  box-shadow: none;          /* pas d’ombre */
+  color: #fff;               /* texte blanc */
+  text-align: center;        /* texte centré */
 }
+
 .contact-title {
   margin: 0;
   text-align: center;
