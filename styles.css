@@ -114,17 +114,17 @@ h1, h2 {
   background: rgba(0,0,0,0.2);
 }
 
-/* === 3 barres du bouton hamburger === */
+/* Les 3 barres du hamburger */
 .nav-toggle .bar {
-  width: 40px;               /* longueur fixe des barres (plus longues qu’avant) */
-  height: 3px;               /* épaisseur : plus fines que 5px */
-  background: #fff;          /* couleur blanche */
-  border-radius: 2px;        /* coins légèrement arrondis pour un aspect doux */
-  margin: 4px 0;             /* espace vertical entre chaque barre => elles paraissent plus grosses dans l’ensemble */
-  display: block;            /* chaque barre est traitée comme un bloc séparé */
-  transition: transform .3s ease, opacity .3s ease; 
-  /* transitions lisses pour les animations (rotation en croix, disparition, etc.) */
+  width: 40px;                /* longueur fixe → bien visibles */
+  height: 3px;                /* fines mais nettes */
+  background: #fff;           /* blanches */
+  border-radius: 2px;         /* coins arrondis */
+  margin: 5px 0;              /* espace entre elles (elles paraissent plus grosses globalement) */
+  display: block;
+  transition: transform .3s ease, opacity .3s ease;
 }
+
 
 /* 3.2 Overlay plein écran (derrière le panneau) */
 .overlay {
