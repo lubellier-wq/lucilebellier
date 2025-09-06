@@ -264,3 +264,22 @@ input:focus, textarea:focus {
 }
 .field { display: grid; gap: 6px; }
 .field label { font-weight: 600; letter-spacing: .02em; }
+
+/* Assure que le header passe au-dessus de tout */
+.site-header { position: fixed; top: 0; left: 0; z-index: 10000; }
+.nav-toggle  { z-index: 10001; }
+.drawer      { z-index: 10001; }
+.overlay     { z-index: 10000; }
+
+/* Cache VRAIMENT l’overlay quand [hidden] est présent */
+.overlay[hidden] { display: none !important; }
+
+/* (Rappel) barres du hamburger : garder ceci pour qu’on les voie bien */
+.nav-toggle .bar {
+  width: 100%;
+  height: 5px;
+  background: #fff;
+  border-radius: 3px;
+  transition: transform .3s ease, opacity .3s ease;
+}
+
