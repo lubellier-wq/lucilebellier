@@ -1,66 +1,74 @@
-<!-- MENU HAMBURGER — SLIDE-IN GAUCHE -->
-<header class="site-header">
-  <button class="nav-toggle" aria-expanded="false" aria-controls="drawer" aria-label="Ouvrir le menu">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact – LUCILE BELLIER</title>
+  <meta name="description" content="Formulaire de contact pour LUCILE BELLIER" />
+  <link rel="stylesheet" href="styles.css?v=12">
+</head>
+<body>
 
-  <div class="overlay" hidden></div>
+  <!-- MENU HAMBURGER — SLIDE-IN GAUCHE -->
+  <header class="site-header">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="drawer" aria-label="Ouvrir le menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
 
-  <nav id="drawer" class="drawer" aria-hidden="true">
-    <ul class="drawer-menu">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="vote.html">Vote</a></li>
-      <li><a href="apropos.html">À propos</a></li>
-      <li><a href="projets.html">Projets</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+    <!-- overlay plein écran (UN SEUL) -->
+    <div class="overlay" hidden></div>
 
-  <!-- overlay plein écran -->
-  <div class="overlay" hidden></div>
+    <!-- panneau latéral (UN SEUL) -->
+    <nav id="drawer" class="drawer" aria-hidden="true">
+      <ul class="drawer-menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="vote.html">Vote</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="projets.html">Projets</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- panneau latéral -->
-  <nav id="drawer" class="drawer" aria-hidden="true">
-    <ul class="drawer-menu">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="vote.html">Vote</a></li>
-      <li><a href="apropos.html">À propos</a></li>
-      <li><a href="projets.html">Projets</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <!-- CONTENU CONTACT -->
+  <main class="page contact-wrapper">
+    <section class="contact-card" aria-labelledby="contact-title">
+      <h1 id="contact-title" class="contact-title">Contact</h1>
+      <p class="contact-intro">Un projet, une retouche ou une création sur mesure ? Écrivez-moi.</p>
 
-<link rel="stylesheet" href="styles.css?v=9">
+      <form action="https://formsubmit.co/lubellier@gmail.com" method="POST" class="contact-form" novalidate>
+        <!-- FormSubmit -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://www.lucilebellier.fr/merci.html">
 
-<main class="page contact-wrapper">
-  <section class="contact-card" aria-labelledby="contact-title">
-    <h1 id="contact-title" class="contact-title">Contact</h1>
-    <p class="contact-intro">Un projet, une retouche ou une création sur mesure ? Écrivez-moi.</p>
+        <div class="field">
+          <label for="name">Nom</label>
+          <input id="name" name="name" type="text" required>
+        </div>
 
-    <form action="https://formsubmit.co/lubellier@gmail.com" method="POST" class="contact-form" novalidate>
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://www.lucilebellier.fr/merci.html">
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+        </div>
 
-      <div class="field">
-        <label for="name">Nom</label>
-        <input id="name" name="name" type="text" required>
-      </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
 
-      <div class="field">
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required>
-      </div>
+        <button type="submit" class="btn-gold">Envoyer</button>
+      </form>
+    </section>
+  </main>
 
-      <div class="field">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-      </div>
+  <!-- PIED DE PAGE -->
+  <footer class="site-footer">
+    <small>© <span id="year"></span> Tous droits réservés</small>
+  </footer>
 
-      <button type="submit" class="btn-gold">Envoyer</button>
-    </form>
-  </section>
-</main>
+  <!-- JS -->
+  <script src="script.js" defer></script>
+</body>
+</html>
