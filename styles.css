@@ -46,7 +46,7 @@ h1, h2 {
 
 /**********************************************************
   2) ENTÊTE "HERO" (accueil)
-  - Gros titre centré + sous-titre doré + petit texte
+  - Gros titre centré + sous-titre + petit texte
 **********************************************************/
 .hero {
   width: 100%;
@@ -67,7 +67,7 @@ h1, h2 {
   margin: 10px 0 0;
   font-size: clamp(1.1rem, 3vw, 1.75rem);
   line-height: 1.3;
-  color: #F4C430;        /* ✅ corrigé : doré (cohérent avec le bouton) */
+  color: #FFFFFF;        
   font-weight: 600;
 }
 
