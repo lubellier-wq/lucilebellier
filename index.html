@@ -3,54 +3,42 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LUCILE BELLIER</title>
-  <meta name="description" content="Bienvenue sur mon site vitrine." />
-  <link rel="stylesheet" href="styles.css?v=5">
-
-  <!-- Scroll fluide -->
-  <style>
-    html { scroll-behavior: smooth; }
-  </style>
+  <title>Accueil – LUCILE BELLIER</title>
+  <meta name="description" content="Vêtements sur mesure – LUCILE BELLIER" />
+  <link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
 
-<!-- MENU HAMBURGER — DESIGN 1 (SLIDE-IN GAUCHE) -->
-<header class="site-header">
-  <!-- bouton hamburger -->
-  <button class="nav-toggle" aria-expanded="false" aria-controls="drawer" aria-label="Ouvrir le menu">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
+  <!-- MENU HAMBURGER -->
+  <header class="site-header">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="drawer" aria-label="Ouvrir le menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
 
-  <!-- overlay plein écran -->
-  <div class="overlay" hidden></div>
+    <div class="overlay" hidden></div>
 
-  <!-- panneau latéral -->
-  <nav id="drawer" class="drawer" aria-hidden="true">
-    <ul class="drawer-menu">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="vote.html">Vote</a></li>
-      <li><a href="apropos.html">À propos</a></li>
-      <li><a href="projets.html">Projets</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+    <nav id="drawer" class="drawer" aria-hidden="true">
+      <ul class="drawer-menu">
+        <li><a href="index.html" aria-current="page">Accueil</a></li>
+        <li><a href="vote.html">Vote</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="projets.html">Projets</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- EN-TÊTE -->
-<header class="hero">
-  <h1 class="hero-title">LUCILE BELLIER</h1>
-  <p class="hero-subtitle">Vêtements sur mesure</p>
-  <p class="hero-text">Création de vêtement sur mesure. Commande par téléphone ou mail. Blablablablabalablablabla</p>
-</header>
+  <!-- HERO -->
+  <header class="hero">
+    <h1 class="hero-title">LUCILE BELLIER</h1>
+    <p class="hero-subtitle">Vêtements sur mesure</p>
+    <p class="hero-text">Création de vêtements sur mesure. Commande par téléphone ou mail.</p>
+  </header>
 
-  <!-- PIED DE PAGE -->
-  <footer class="container">
+  <footer class="site-footer">
     <small>© <span id="year"></span> Tous droits réservés</small>
   </footer>
 
-  <!-- SCRIPT -->
-  <script src="script.js" defer></script>
+  <script src="script.js?v=13" defer></script>
 </body>
 </html>
