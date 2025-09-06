@@ -266,6 +266,34 @@ input:focus, textarea:focus {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* Bloc coordonnées dans contact */
+.contact-infos {
+  text-align: center;
+  margin: 20px 0 30px;
+  font-size: 1.05rem;
+  color: #fff;  /* blanc sur fond carrelage */
+}
+
+.contact-infos p {
+  margin: 8px 0;
+}
+
+.contact-infos .icon {
+  font-size: 1.3rem;   /* un peu plus grand que le texte */
+  margin-right: 6px;   /* espace après l’icône */
+}
+
+.contact-infos a {
+  color: #F4C430;      /* doré comme ton bouton */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-infos a:hover {
+  text-decoration: underline;
+}
+
 .field { display: grid; gap: 6px; }
 .field label { font-weight: 600; letter-spacing: .02em; }
 
