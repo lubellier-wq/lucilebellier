@@ -3,37 +3,41 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vote — LUCILE BELLIER</title>
-  <link rel="stylesheet" href="styles.css?v=5">
+  <title>Vote – LUCILE BELLIER</title>
+  <meta name="description" content="Vote – LUCILE BELLIER" />
+  <link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
 
-<!-- MENU identique -->
-<header class="site-header">
-  <button class="nav-toggle" aria-expanded="false" aria-controls="drawer" aria-label="Ouvrir le menu">
-    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-  </button>
-  <div class="overlay" hidden></div>
-  <nav id="drawer" class="drawer" aria-hidden="true">
-    <ul class="drawer-menu">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="vote.html">Vote</a></li>
-      <li><a href="apropos.html">À propos</a></li>
-      <li><a href="projets.html">Projets</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <!-- MENU HAMBURGER -->
+  <header class="site-header">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="drawer" aria-label="Ouvrir le menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
 
-<main class="page">
-  <h1>Vote</h1>
-  <!-- Colle ici ton iframe Google Form -->
-</main>
+    <div class="overlay" hidden></div>
 
-<footer class="container">
-  <small>© <span id="year"></span> Tous droits réservés</small>
-</footer>
+    <nav id="drawer" class="drawer" aria-hidden="true">
+      <ul class="drawer-menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="vote.html" aria-current="page">Vote</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="projets.html">Projets</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<script src="script.js" defer></script>
+  <main class="page" style="padding-top:110px;">
+    <h1>Vote</h1>
+    <!-- Colle ici ton iframe Google Forms -->
+    <!-- <iframe src="..." width="640" height="402" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe> -->
+  </main>
+
+  <footer class="site-footer">
+    <small>© <span id="year"></span> Tous droits réservés</small>
+  </footer>
+
+  <script src="script.js?v=13" defer></script>
 </body>
 </html>
