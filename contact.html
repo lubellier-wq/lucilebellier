@@ -4,23 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact – LUCILE BELLIER</title>
-  <meta name="description" content="Formulaire de contact pour LUCILE BELLIER" />
-  <link rel="stylesheet" href="styles.css?v=12">
+  <meta name="description" content="Formulaire de contact – LUCILE BELLIER" />
+  <link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
 
-  <!-- MENU HAMBURGER — SLIDE-IN GAUCHE -->
+  <!-- MENU HAMBURGER -->
   <header class="site-header">
     <button class="nav-toggle" aria-expanded="false" aria-controls="drawer" aria-label="Ouvrir le menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
 
-    <!-- overlay plein écran (UN SEUL) -->
     <div class="overlay" hidden></div>
 
-    <!-- panneau latéral (UN SEUL) -->
     <nav id="drawer" class="drawer" aria-hidden="true">
       <ul class="drawer-menu">
         <li><a href="index.html">Accueil</a></li>
@@ -39,7 +35,6 @@
       <p class="contact-intro">Un projet, une retouche ou une création sur mesure ? Écrivez-moi.</p>
 
       <form action="https://formsubmit.co/lubellier@gmail.com" method="POST" class="contact-form" novalidate>
-        <!-- FormSubmit -->
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://www.lucilebellier.fr/merci.html">
 
@@ -63,12 +58,10 @@
     </section>
   </main>
 
-  <!-- PIED DE PAGE -->
   <footer class="site-footer">
     <small>© <span id="year"></span> Tous droits réservés</small>
   </footer>
 
-  <!-- JS -->
-  <script src="script.js" defer></script>
+  <script src="script.js?v=13" defer></script>
 </body>
 </html>
