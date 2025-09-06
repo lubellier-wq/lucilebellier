@@ -90,20 +90,21 @@ h1, h2 {
   z-index: 1000;
 }
 
-/* 3.1 Bouton hamburger */
+/* Bouton hamburger (le conteneur des 3 barres) */
 .nav-toggle {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 36px;    /* ✅ plus cohérent qu’un 50px large au-dessus */
-  height: 28px;
+  justify-content: center;    /* centre les barres verticalement */
+  align-items: center;        /* centre les barres horizontalement */
+  width: 50px;                /* ✅ plus large pour contenir les barres */
+  height: 40px;               /* ✅ plus haut pour donner de l’espace */
   margin: 20px;
-  padding: 6px;
-  background: transparent; /* pas de fond par défaut */
+  padding: 0;
+  background: transparent;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  z-index: 1101;            /* au-dessus du panneau */
+  z-index: 1101;
   transition: background 0.2s ease;
 }
 
