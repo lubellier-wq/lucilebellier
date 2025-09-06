@@ -287,3 +287,45 @@ input:focus, textarea:focus {
   transition: transform .3s ease, opacity .3s ease;
 }
 
+
+
+/* ==== FIX HAMBURGER (force l'affichage) ==== */
+
+/* 1) Le bouton (conteneur) */
+.site-header{ position:fixed; top:0; left:0; z-index:10000; }  /* au-dessus du contenu */
+.nav-toggle{
+  display:flex !important;
+  flex-direction:column;
+  justify-content:center;        /* centre verticalement les barres */
+  align-items:center;            /* centre horizontalement */
+  width:56px !important;         /* assez large pour 40px de barre */
+  height:44px !important;        /* assez haut pour 3 barres + marges */
+  margin:16px;
+  padding:0;
+  background:transparent;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  z-index:10001;
+}
+
+/* 2) Les 3 barres */
+.nav-toggle .bar{
+  display:block !important;
+  width:40px !important;         /* longues */
+  height:3px !important;         /* fines */
+  background:#fff !important;    /* blanches */
+  border-radius:2px;
+  margin:5px 0;                  /* espace entre elles */
+  transition:transform .3s ease, opacity .3s ease;
+}
+
+/* 3) Animation en croix (optionnel, garde si tu l'avais) */
+.nav-toggle.open .bar:nth-child(1){ transform:rotate(45deg) translate(6px,7px); }
+.nav-toggle.open .bar:nth-child(2){ opacity:0; }
+.nav-toggle.open .bar:nth-child(3){ transform:rotate(-45deg) translate(6px,-7px); }
+
+/* 4) Empêche l’overlay de masquer le bouton si jamais il reste visible */
+.overlay[hidden]{ display:none !important; }
+
+
