@@ -51,7 +51,7 @@ h1, h2 {
 .hero {
   width: 100%;
   text-align: center;
-  margin: 90px auto 60px; /* espace sous le hamburger fixe */
+  margin: 50px auto 60px; /* espace sous le hamburger fixe */
   padding: 0 16px;        /* confort sur mobile */
 }
 
