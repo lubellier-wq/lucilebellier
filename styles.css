@@ -79,18 +79,31 @@ h1, h2 {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Texte principal de la page d'accueil (aligné à gauche) */
-.home-content {
-  padding: 40px 8%;      /* marge gauche/droite en % pour s’adapter à l’écran */
-  color: #fff;           /* blanc sur le carrelage */
-  text-align: left;      /* alignement à gauche */
+
+/* Section accueil en deux colonnes */
+.home-wrapper {
+  display: flex;               /* aligne image et texte côte à côte */
+  align-items: center;         /* centre verticalement */
+  justify-content: center;     /* centre dans la page */
+  gap: 40px;                   /* espace entre image et texte */
+  padding: 40px 8%;
+  flex-wrap: wrap;             /* permet de passer en colonne sur mobile */
 }
 
-.home-content p {
-  max-width: 700px;      /* pour éviter les lignes trop longues */
-  margin: 0 0 16px 0;    /* espace entre les paragraphes */
+.home-photo img {
+  max-width: 280px;            /* largeur max de la photo */
+  border-radius: 12px;         /* coins arrondis */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3); /* petite ombre */
+}
+
+.home-text {
+  max-width: 600px;            /* largeur max du texte */
+  color: #fff;
+  text-align: left;
   line-height: 1.6;
 }
+
+
 
 /**********************************************************
   3) MENU HAMBURGER — SLIDE-IN GAUCHE
