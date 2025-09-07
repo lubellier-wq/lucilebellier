@@ -145,7 +145,7 @@ h1, h2 {
   left: 10px;                     /* léger décalage du bord */
   height: 70vh;
   width: min(320px, 86vw);
-  background: rgba(255, 248, 231, 0.9);
+  background: rgba(255, 248, 231, 0.5);
   backdrop-filter: blur(8px);
   border-radius: 12px;
   box-shadow: 0 12px 30px rgba(0,0,0,.25);
