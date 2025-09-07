@@ -91,7 +91,7 @@ h1, h2 {
 }
 
 .home-photo img {
-  max-width: 500px;            /* largeur max de la photo */
+  max-width: 450px;            /* largeur max de la photo */
   border-radius: 5px;         /* coins arrondis */
   box-shadow: 0 6px 18px rgba(0,0,0,0.3); /* petite ombre */
 }
