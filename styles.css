@@ -96,13 +96,14 @@ h1, h2 {
   box-shadow: 0 6px 18px rgba(0,0,0,0.3); /* petite ombre */
 }
 
+
 .home-text {
-  max-width: 600px;            /* largeur max du texte */
+  max-width: 600px;
   color: #fff;
   text-align: left;
   line-height: 1.6;
+  font-size: 1.1rem;   /* ✅ définit la taille du texte */
 }
-
 
 
 /**********************************************************
