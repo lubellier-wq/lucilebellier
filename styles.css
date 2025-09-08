@@ -79,31 +79,48 @@ h1, h2 {
   color: rgba(255, 255, 255, 0.7);
 }
 
-
 /* Section accueil en deux colonnes */
 .home-wrapper {
-  display: flex;               /* aligne image et texte côte à côte */
-  align-items: center;         /* centre verticalement */
-  justify-content: center;     /* centre dans la page */
-  gap: 40px;                   /* espace entre image et texte */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* évite de tasser au centre */
+  gap: 40px;
   padding: 40px 8%;
-  flex-wrap: wrap;             /* permet de passer en colonne sur mobile */
+  flex-wrap: nowrap;              /* ✅ reste sur une ligne en desktop */
+  box-sizing: border-box;
 }
 
+/* Colonne gauche : photo */
+.home-photo { 
+  flex: 0 0 420px;                /* largeur fixe (ajuste si besoin) */
+}
 .home-photo img {
-  max-width: 450px;            /* largeur max de la photo */
-  border-radius: 5px;         /* coins arrondis */
-  box-shadow: 0 6px 18px rgba(0,0,0,0.3); /* petite ombre */
+  width: 100%;                    /* ✅ l’image s’adapte au conteneur */
+  height: auto;
+  display: block;
+  border-radius: 5px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
 }
 
-
+/* Colonne droite : texte */
 .home-text {
-  max-width: 600px;
+  flex: 1 1 0;                    /* ✅ prend tout l’espace restant */
+  max-width: none;                /* annule le 600px qui forçait le wrap */
   color: #fff;
   text-align: left;
   line-height: 1.6;
-  font-size: 1.1rem;   /* ✅ définit la taille du texte */
+  font-size: 1.1rem;
 }
+
+/* Responsive : pile en colonne quand l’espace devient trop étroit */
+@media (max-width: 900px) {
+  .home-wrapper { flex-wrap: wrap; }
+  .home-photo, .home-text { flex: 1 1 100%; }
+  .home-photo { max-width: 520px; margin: 0 auto; }
+  .home-text  { font-size: 1rem; }
+}
+
+
 
 
 /**********************************************************
