@@ -186,19 +186,34 @@ h1, h2 {
 .drawer {
   position: fixed;
   top: 60px;
-  left: 10px;                     /* léger décalage du bord */
+  left: 10px;
   height: 70vh;
-  width: min(320px, 86vw);
-  background: rgba(255, 255, 224, 0.85);
-  backdrop-filter: blur(8px);
-  border-radius: 12px;
-  box-shadow: 0 12px 30px rgba(0,0,0,.25);
-  transform: translateX(-120%);   /* caché par défaut */
+
+  /* ✅ moins large */
+  width: min(260px, 80vw);
+
+  /* ✅ bordeaux foncé légèrement transparent */
+  background: rgba(90, 20, 30, 0.88);  /* ajuste les valeurs RGB si tu veux plus/moins rouge */
+
+  backdrop-filter: blur(6px);          /* léger flou de fond */
+  border-radius: 6px;                  /* ✅ coins moins arrondis */
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+
+  /* ✅ lisibilité du texte garantie */
+  color: #fff;                         /* texte blanc */
+  font-weight: 500;                    /* un peu plus lisible */
+
+  transform: translateX(-120%);        /* caché par défaut */
   transition: transform .3s ease;
   z-index: 1101;
   overflow: auto;
 }
-.drawer.open { transform: translateX(0); }  /* affiché via JS */
+
+.drawer.open { transform: translateX(0); }
+
+
+
+
 
 /* Liens du menu */
 .drawer-menu { list-style: none; margin: 0; padding: 16px; }
