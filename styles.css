@@ -92,13 +92,13 @@ h1, h2 {
 
 /* Colonne gauche : photo */
 .home-photo { 
-  flex: 0 0 420px;                /* largeur fixe (ajuste si besoin) */
+  flex: 0 0 520px;                /* largeur fixe (ajuste si besoin) */
 }
 .home-photo img {
   width: 100%;                    /* ✅ l’image s’adapte au conteneur */
   height: auto;
   display: block;
-  border-radius: 5px;
+  border-radius: 3px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.3);
 }
 
