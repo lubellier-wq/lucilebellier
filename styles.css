@@ -190,7 +190,7 @@ h1, h2 {
   height: 70vh;
 
   /* ✅ moins large */
-  width: min(200px, 80vw);
+  width: min(150px, 50vw);
 
   /* ✅ bordeaux foncé légèrement transparent */
   background: rgba(135, 35, 27, 0.9); /* ajuste les valeurs RGB si tu veux plus/moins rouge */
