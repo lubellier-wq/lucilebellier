@@ -193,14 +193,14 @@ h1, h2 {
   width: min(260px, 80vw);
 
   /* ✅ bordeaux foncé légèrement transparent */
-  background: rgba(90, 20, 30, 0.88);  /* ajuste les valeurs RGB si tu veux plus/moins rouge */
+  background: rgba(90, 20, 30, 0.9);  /* ajuste les valeurs RGB si tu veux plus/moins rouge */
 
   backdrop-filter: blur(6px);          /* léger flou de fond */
   border-radius: 6px;                  /* ✅ coins moins arrondis */
   box-shadow: 0 12px 30px rgba(0,0,0,.35);
 
   /* ✅ lisibilité du texte garantie */
-  color: #fff;                         /* texte blanc */
+  color: #ffffff;                         /* texte blanc */
   font-weight: 500;                    /* un peu plus lisible */
 
   transform: translateX(-120%);        /* caché par défaut */
