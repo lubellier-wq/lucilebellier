@@ -190,18 +190,17 @@ h1, h2 {
   height: 70vh;
 
   /* ✅ moins large */
-  width: min(260px, 80vw);
+  width: min(200px, 80vw);
 
   /* ✅ bordeaux foncé légèrement transparent */
-  background: rgba(90, 20, 30, 0.9);  /* ajuste les valeurs RGB si tu veux plus/moins rouge */
-
+  background: rgba(135, 35, 27, 0.9); /* ajuste les valeurs RGB si tu veux plus/moins rouge */
   backdrop-filter: blur(6px);          /* léger flou de fond */
   border-radius: 6px;                  /* ✅ coins moins arrondis */
   box-shadow: 0 12px 30px rgba(0,0,0,.35);
 
   /* ✅ lisibilité du texte garantie */
   color: #ffffff;                         /* texte blanc */
-  font-weight: 500;                    /* un peu plus lisible */
+  font-weight: 600;                    /* un peu plus lisible */
 
   transform: translateX(-120%);        /* caché par défaut */
   transition: transform .3s ease;
