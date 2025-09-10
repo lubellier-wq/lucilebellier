@@ -199,8 +199,8 @@ h1, h2 {
   box-shadow: 0 12px 30px rgba(0,0,0,.35);
 
   /* ✅ lisibilité du texte garantie */
-  color: #ffffff;                         /* texte blanc */
-  font-weight: 600;                    /* un peu plus lisible */
+  color: #FFFFFF;                         /* texte blanc */
+  font-weight: 700;                    /* un peu plus lisible */
 
   transform: translateX(-120%);        /* caché par défaut */
   transition: transform .3s ease;
