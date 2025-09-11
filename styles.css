@@ -1,76 +1,58 @@
 /**********************************************************
   0) POLICE LOCALE (facultatif)
-  - Charge Inconsolata.ttf si le fichier est à la racine du site.
-  - Supprime ce bloc si tu ne l’utilises pas.
 **********************************************************/
 @font-face {
   font-family: "Inconsolata";
   src: url("./Inconsolata.ttf?v=1") format("truetype");
   font-weight: 400;
   font-style: normal;
-  font-display: swap; /* affiche une police de secours en attendant le chargement */
+  font-display: swap;
 }
 
 /**********************************************************
   1) BASE DU SITE
-  - Police, couleurs, fond carrelage, règles globales
 **********************************************************/
-* { box-sizing: border-box; }   /* padding/border inclus dans la largeur/hauteur */
-
-html { scroll-behavior: smooth; } /* défilement doux vers les ancres */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
   font-family: "Inconsolata", sans-serif;
   margin: 0;
   line-height: 1.6;
   color: #fff;
-
-  /* Fond carrelage */
   background-image: url("fondcarrelage.jpg");
   background-repeat: repeat;
   background-position: center center;
   background-size: 200px 200px;
 }
 
-/* Marges fluides à gauche/droite pour tout le contenu */
-main, section, footer {
-  padding-left: 5%;
-  padding-right: 5%;
-}
+main, section, footer { padding-left: 5%; padding-right: 5%; }
 
-/* Titres par défaut */
-h1, h2 {
-  color: #fff;
-  font-weight: 700; /* gras (simulé si tu n’as pas la fonte Bold) */
-}
+h1, h2 { color: #fff; font-weight: 700; }
 
 /**********************************************************
-  2) ENTÊTE "HERO" (accueil)
-  - Gros titre centré + sous-titre + petit texte
+  2) ENTÊTE "HERO"
 **********************************************************/
 .hero {
   width: 100%;
   text-align: center;
-  margin: 50px auto 60px; /* espace sous le hamburger fixe */
-  padding: 0 16px;        /* confort sur mobile */
+  margin: 50px auto 60px;
+  padding: 0 16px;
 }
-
 .hero-title {
   margin: 0;
-  font-size: clamp(2.2rem, 5vw, 3.5rem); /* taille responsive */
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
   line-height: 1.1;
-  letter-spacing: 0.12em;                /* léger espacement chic */
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-
 .hero-subtitle {
   margin: 10px 0 0;
   font-size: clamp(1.1rem, 3vw, 1.75rem);
   line-height: 1.3;
-  color: #FFFFFF;        
+  color: #FFFFFF;
   font-weight: 600;
 }
-
 .hero-text {
   margin: 30px auto 0;
   max-width: 600px;
@@ -79,40 +61,32 @@ h1, h2 {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Section accueil en deux colonnes */
+/* Accueil 2 colonnes */
 .home-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* évite de tasser au centre */
+  justify-content: space-between;
   gap: 40px;
   padding: 40px 8%;
-  flex-wrap: nowrap;              /* ✅ reste sur une ligne en desktop */
+  flex-wrap: nowrap;
   box-sizing: border-box;
 }
-
-/* Colonne gauche : photo */
-.home-photo { 
-  flex: 0 0 520px;                /* largeur fixe (ajuste si besoin) */
-}
+.home-photo { flex: 0 0 520px; }
 .home-photo img {
-  width: 100%;                    /* ✅ l’image s’adapte au conteneur */
+  width: 100%;
   height: auto;
   display: block;
   border-radius: 3px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.3);
 }
-
-/* Colonne droite : texte */
 .home-text {
-  flex: 1 1 0;                    /* ✅ prend tout l’espace restant */
-  max-width: none;                /* annule le 600px qui forçait le wrap */
+  flex: 1 1 0;
+  max-width: none;
   color: #fff;
   text-align: left;
   line-height: 1.6;
   font-size: 1.1rem;
 }
-
-/* Responsive : pile en colonne quand l’espace devient trop étroit */
 @media (max-width: 900px) {
   .home-wrapper { flex-wrap: wrap; }
   .home-photo, .home-text { flex: 1 1 100%; }
@@ -120,129 +94,112 @@ h1, h2 {
   .home-text  { font-size: 1rem; }
 }
 
-
-
-
 /**********************************************************
   3) MENU HAMBURGER — SLIDE-IN GAUCHE
-  - Bouton (3 barres), overlay, panneau latéral
 **********************************************************/
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
+.site-header { position: fixed; top: 0; left: 0; z-index: 10000; }
 
-/* Bouton hamburger (le conteneur des 3 barres) */
-.nav-toggle {
+/* Bouton hamburger */
+.nav-toggle{
   display: flex;
   flex-direction: column;
-  justify-content: center;    /* centre les barres verticalement */
-  align-items: center;        /* centre les barres horizontalement */
-  width: 50px;                /* ✅ plus large pour contenir les barres */
-  height: 40px;               /* ✅ plus haut pour donner de l’espace */
-  margin: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 44px;
+  margin: 16px;
   padding: 0;
   background: transparent;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  z-index: 1101;
-  transition: background 0.2s ease;
+  z-index: 10001;
 }
-
-/* Fond gris transparent au hover/focus */
 .nav-toggle:hover,
-.nav-toggle:focus {
-  background: rgba(0,0,0,0.2);
-}
+.nav-toggle:focus { background: rgba(0,0,0,0.2); }
 
-/* Les 3 barres du hamburger */
-.nav-toggle .bar {
-  width: 40px;                /* longueur fixe → bien visibles */
-  height: 3px;                /* fines mais nettes */
-  background: #fff;           /* blanches */
-  border-radius: 2px;         /* coins arrondis */
-  margin: 5px 0;              /* espace entre elles (elles paraissent plus grosses globalement) */
+/* Barres */
+.nav-toggle .bar{
+  width: 40px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  margin: 5px 0;
   display: block;
   transition: transform .3s ease, opacity .3s ease;
+  transform-origin: center;              /* ✅ pivot centré pour une croix nette */
 }
 
+/* Animation en croix — parfaitement symétrique */
+.nav-toggle.open .bar:nth-child(1){
+  transform: translateY(8px) rotate(45deg);   /* même décalage Y que la 3ème, signe opposé */
+}
+.nav-toggle.open .bar:nth-child(2){ opacity: 0; }
+.nav-toggle.open .bar:nth-child(3){
+  transform: translateY(-8px) rotate(-45deg);
+}
 
-/* 3.2 Overlay plein écran (derrière le panneau) */
+/* Overlay */
 .overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,.5);
   backdrop-filter: blur(2px);
-  z-index: 1100;
+  z-index: 10000;
   opacity: 0;
   transition: opacity .25s ease;
 }
-.overlay.show { opacity: 1; } /* affiché via JS */
+.overlay.show { opacity: 1; }
+.overlay[hidden]{ display:none !important; }
 
-/* 3.3 Panneau (drawer) qui glisse depuis la gauche */
+/* Panneau (drawer) */
 .drawer {
   position: fixed;
   top: 60px;
   left: 10px;
   height: 70vh;
-
-  /* ✅ moins large */
   width: min(150px, 50vw);
-
-  /* ✅ bordeaux foncé légèrement transparent */
-  background: rgba(135, 35, 27, 0.9); /* ajuste les valeurs RGB si tu veux plus/moins rouge */
-  backdrop-filter: blur(6px);          /* léger flou de fond */
-  border-radius: 6px;                  /* ✅ coins moins arrondis */
+  background: rgba(135, 35, 27, 0.9);
+  backdrop-filter: blur(6px);
+  border-radius: 6px;
   box-shadow: 0 12px 30px rgba(0,0,0,.35);
-
-  /* ✅ lisibilité du texte garantie */
-  color: #FFFFFF;                         /* texte blanc */
-  font-weight: 700;                    /* un peu plus lisible */
-
-  transform: translateX(-120%);        /* caché par défaut */
+  color: #FFFFFF;       /* texte par défaut du panneau */
+  font-weight: 700;
+  transform: translateX(-120%);
   transition: transform .3s ease;
-  z-index: 1101;
+  z-index: 10001;
   overflow: auto;
 }
-
 .drawer.open { transform: translateX(0); }
-
-
-
-
 
 /* Liens du menu */
 .drawer-menu { list-style: none; margin: 0; padding: 16px; }
 .drawer-menu li + li { margin-top: 6px; }
-.drawer-menu a {
+.drawer-menu a{
   display: block;
   padding: 14px 16px;
   border-radius: 10px;
-  color: #fff;
+  color: #fff;                           /* ✅ liens lisibles sur bordeaux */
   text-decoration: none;
   font-size: 1.05rem;
 }
 .drawer-menu a:hover,
-.drawer-menu a:focus {
-  background: rgba(244,196,48,.15); /* survol doré léger */
+.drawer-menu a:focus{
+  background: rgba(244,196,48,.15);
   outline: 2px solid #F4C430;
   outline-offset: 2px;
 }
 
-/* Ancre propre si tu remets des #ancres un jour */
+/* Ancre propre */
 section { scroll-margin-top: 90px; }
 
-/* Ajustement mobile du panneau */
-@media (max-width: 480px) {
+/* Mobile */
+@media (max-width: 480px){
   .drawer { top: 56px; left: 8px; height: 72vh; width: 90vw; }
 }
 
 /**********************************************************
   4) FORMULAIRES (général)
-  - Utilisé sur contact.html ; inoffensif sur l’accueil
 **********************************************************/
 form {
   display: grid;
@@ -251,9 +208,9 @@ form {
   max-width: 560px;
 }
 input, textarea {
-  padding: 12px 14px;                     /* ✅ plus confortable que 8px */
-  border: 1px solid rgba(0,0,0,.2);       /* ✅ gris doux */
-  border-radius: 10px;                    /* ✅ arrondis cohérents */
+  padding: 12px 14px;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 10px;
   background: #fff;
   color: #111;
   font: inherit;
@@ -266,7 +223,7 @@ input:focus, textarea:focus {
   box-shadow: 0 0 0 3px rgba(244,196,48,.35);
 }
 
-/* Bouton doré générique (ajoute class="btn-gold" sur le <button>) */
+/* Bouton doré */
 .btn-gold {
   border: none;
   background: #F4C430;
@@ -282,23 +239,22 @@ input:focus, textarea:focus {
 .btn-gold:active { transform: translateY(1px); }
 
 /**********************************************************
-  5) CONTACT — CARTE VERRE DÉPOLI (page contact.html)
+  5) CONTACT — CARTE VERRE DÉPOLI
 **********************************************************/
 .contact-wrapper {
   display: grid;
   place-items: center;
-  padding: 110px 5% 80px;      /* espace sous le header fixe */
+  padding: 110px 5% 80px;
 }
 .contact-card {
   width: 100%;
-  padding: 0 5%;             /* marges latérales fluides */
-  border: none;              /* pas de bordure */
-  background: none;          /* pas de fond */
-  box-shadow: none;          /* pas d’ombre */
-  color: #fff;               /* texte blanc */
-  text-align: center;        /* texte centré */
+  padding: 0 5%;
+  border: none;
+  background: none;
+  box-shadow: none;
+  color: #fff;
+  text-align: center;
 }
-
 .contact-title {
   margin: 0;
   text-align: center;
@@ -324,67 +280,5 @@ input:focus, textarea:focus {
   margin-left: auto;
   margin-right: auto;
 }
-
 .field { display: grid; gap: 6px; }
 .field label { font-weight: 600; letter-spacing: .02em; }
-
-/* Assure que le header passe au-dessus de tout */
-.site-header { position: fixed; top: 0; left: 0; z-index: 10000; }
-.nav-toggle  { z-index: 10001; }
-.drawer      { z-index: 10001; }
-.overlay     { z-index: 10000; }
-
-/* Cache VRAIMENT l’overlay quand [hidden] est présent */
-.overlay[hidden] { display: none !important; }
-
-/* (Rappel) barres du hamburger : garder ceci pour qu’on les voie bien */
-.nav-toggle .bar {
-  width: 100%;
-  height: 5px;
-  background: #fff;
-  border-radius: 3px;
-  transition: transform .3s ease, opacity .3s ease;
-}
-
-
-
-/* ==== FIX HAMBURGER (force l'affichage) ==== */
-
-/* 1) Le bouton (conteneur) */
-.site-header{ position:fixed; top:0; left:0; z-index:10000; }  /* au-dessus du contenu */
-.nav-toggle{
-  display:flex !important;
-  flex-direction:column;
-  justify-content:center;        /* centre verticalement les barres */
-  align-items:center;            /* centre horizontalement */
-  width:56px !important;         /* assez large pour 40px de barre */
-  height:44px !important;        /* assez haut pour 3 barres + marges */
-  margin:16px;
-  padding:0;
-  background:transparent;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  z-index:10001;
-}
-
-/* 2) Les 3 barres */
-.nav-toggle .bar{
-  display:block !important;
-  width:40px !important;         /* longues */
-  height:3px !important;         /* fines */
-  background:#fff !important;    /* blanches */
-  border-radius:2px;
-  margin:5px 0;                  /* espace entre elles */
-  transition:transform .3s ease, opacity .3s ease;
-}
-
-/* 3) Animation en croix (optionnel, garde si tu l'avais) */
-.nav-toggle.open .bar:nth-child(1){ transform:rotate(45deg) translate(6px,7px); }
-.nav-toggle.open .bar:nth-child(2){ opacity:0; }
-.nav-toggle.open .bar:nth-child(3){ transform:rotate(-45deg) translate(6px,-7px); }
-
-/* 4) Empêche l’overlay de masquer le bouton si jamais il reste visible */
-.overlay[hidden]{ display:none !important; }
-
-
