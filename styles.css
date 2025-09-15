@@ -15,20 +15,43 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
+/* Fond plein écran, texte noir */
+html, body { height: 100%; } /* pour bien couvrir la hauteur */
 body {
   font-family: "Inconsolata", sans-serif;
   margin: 0;
   line-height: 1.6;
-  color: #000000;
-  background-image: url("carrelage.png");
-  background-repeat: repeat;
+  color: #000; /* texte noir */
+
+  /* Image de fond */
+  background-image: url("carrelagevert.png");
+  background-repeat: no-repeat;
   background-position: center center;
-  background-size: 200px 200px;
+  background-size: cover;
+  background-attachment: fixed; /* joli effet et couverture stable sur desktop */
 }
 
-main, section, footer { padding-left: 5%; padding-right: 5%; }
+/* Mobile & petites tablettes */
+@media (max-width: 768px) {
+  body {
+    /* iOS/Android : on évite fixed pour le défilement */
+    background-attachment: scroll;
+    /* On recadre un peu pour moins “zoomer” visuellement */
+    background-position: top center;
+  }
+}
 
-h1, h2 { color: #000000; font-weight: 700; }
+/* Très petits écrans : option “contain” si tu préfères voir l’image entière
+   (au prix de petites marges sur les côtés). Décommente si besoin. */
+/*
+@media (max-width: 420px) {
+  body {
+    background-size: contain;
+    background-color: #ffffff; 
+  }
+}
+*/
+
 
 /**********************************************************
   2) ENTÊTE "HERO"
