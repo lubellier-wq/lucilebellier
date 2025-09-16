@@ -62,8 +62,10 @@ h1, h2, h3, p, li, small, label, a { text-shadow: var(--text-halo); }
 /* Désactive le halo dans le panneau (texte clair sur fond foncé) */
 .drawer * { text-shadow: none; }
 
-/* Conteneur standard : marges latérales de 5% */
-.container { padding-left: 5%; padding-right: 5%; }
+/* MARGE GLOBALE — 5% à gauche/droite pour tout le contenu (pas le menu fixe) */
+:where(.hero, main, section, footer, .site-footer) {
+  padding-inline: 5%; /* = padding-left + padding-right */
+}
 
 /* Ancrage propre pour les scrolls sous le header fixe */
 section { scroll-margin-top: 90px; }
