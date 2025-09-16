@@ -51,6 +51,11 @@ body {
   background-size: cover;          /* couvre tout l’écran */
 }
 
+/* MARGE GLOBALE — 5% à gauche/droite pour tout le contenu (pas le menu fixe) */
+:where(.hero, main, section, footer, .site-footer) {
+  padding-inline: 5%; /* = padding-left + padding-right */
+}
+
 /* Mobile : évite les saccades liées à background-attachment */
 @media (max-width: 768px) {
   body { background-attachment: scroll; }
@@ -95,7 +100,9 @@ section { scroll-margin-top: 90px; }
   3) CONTENU D’ACCUEIL
   - Bloc de texte à gauche, largeur confortable
 **********************************************************/
-.home { padding: 10px 0 40px; }
+
+.home { padding-block: 10px 40px; }
+
 .home-text{
   max-width: 720px;   /* largeur de lecture */
   /* Le texte est à gauche naturellement (pas de flex à droite) */
