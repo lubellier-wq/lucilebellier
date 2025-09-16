@@ -39,12 +39,10 @@ body{
   margin: 0;
   color: #000; /* ✅ texte noir partout par défaut */
 
-  /* Si tu veux remettre ton image : décommente ces 4 lignes
   background-image: url("carrelagevert.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  */
 
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
