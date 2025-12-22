@@ -1,5 +1,5 @@
 /**********************************************************
-  0) POLICE LOCALE
+  0) POLICE LOCALE (facultatif)
 **********************************************************/
 @font-face {
   font-family: "Inconsolata";
@@ -15,42 +15,38 @@
 * { box-sizing: border-box; }
 
 html {
-  scroll-behavior: smooth;
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 :root{
   --base-font-size: clamp(18px, 1.8vw, 20px);
-  --text-halo: 0 1px 0 rgba(255,255,255,.75),
-               0 0 10px rgba(255,255,255,.35);
   --drawer-green: rgba(34, 131, 96, .96);
-  --hover-grey: rgba(0,0,0,.20);
+  --hover-grey: rgba(0,0,0,.18);
 }
 
 /**********************************************************
-  2) BODY — FOND BORDEAUX TEXTURÉ (SANS IMAGE)
+  2) BODY — FOND CLAIR TEXTURÉ (OPTION 1)
 **********************************************************/
 body{
   margin: 0;
   min-height: 100%;
   font-family: "Inconsolata", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.7;
   font-size: var(--base-font-size);
-  color: #000;
+  line-height: 1.7;
+  color: #111;
 
-  /* FOND BORDEAUX TEXTURÉ */
-  background-color: #482217;
+  /* Fond clair + ambiance bordeaux très légère + micro-grain discret */
+  background-color: #f6f1ef;
   background-image:
-    radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-    radial-gradient(rgba(0,0,0,0.08) 1px, transparent 1px);
-  background-size: 48px 48px, 72px 72px;
-  background-position: 0 0, 24px 24px;
+    linear-gradient(0deg, rgba(72,34,23,0.06), rgba(72,34,23,0.06)),
+    radial-gradient(rgba(0,0,0,0.035) 1px, transparent 1px);
+  background-size: auto, 28px 28px;
+  background-position: center, 0 0;
 }
 
-/* Texte lisible sur fond sombre */
-h1, h2, h3, p, li, small, label, a {
-  text-shadow: var(--text-halo);
-}
+/* Confort de lecture */
+p, li { max-width: 70ch; }
 
 /**********************************************************
   3) MARGES GLOBALES
@@ -59,15 +55,14 @@ h1, h2, h3, p, li, small, label, a {
   padding-inline: 5%;
 }
 
-section{
-  scroll-margin-top: 90px;
-}
+/* Ancrage propre pour les scrolls sous le header fixe */
+section { scroll-margin-top: 90px; }
 
 /**********************************************************
-  4) HERO
+  4) HERO (ENTÊTE)
 **********************************************************/
 .hero{
-  padding-top: 60px;
+  padding-top: 60px;     /* espace sous le bouton fixe */
   text-align: left;
 }
 
@@ -86,22 +81,18 @@ section{
 }
 
 /**********************************************************
-  5) CONTENU ACCUEIL
+  5) CONTENU D’ACCUEIL
 **********************************************************/
-.home{
-  padding-block: 10px 40px;
-}
+.home { padding-block: 10px 40px; }
 
 .home-text{
   max-width: 720px;
 }
 
-.home-text p{
-  margin: 0 0 1.1em;
-}
+.home-text p{ margin: 0 0 1.1em; }
 
 /**********************************************************
-  6) MENU HAMBURGER
+  6) MENU HAMBURGER (slide-in gauche)
 **********************************************************/
 .site-header{
   position: fixed;
@@ -110,6 +101,7 @@ section{
   z-index: 10000;
 }
 
+/* Bouton hamburger */
 .nav-toggle{
   display: flex;
   flex-direction: column;
@@ -118,10 +110,12 @@ section{
   width: 56px;
   height: 44px;
   margin: 16px;
+  padding: 0;
   background: transparent;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  z-index: 10001;
 }
 
 .nav-toggle:hover,
@@ -129,24 +123,22 @@ section{
   background: var(--hover-grey);
 }
 
+/* Barres du hamburger */
 .nav-toggle .bar{
   width: 40px;
   height: 3px;
-  background: #000;
+  background: #111;
   border-radius: 2px;
   margin: 5px 0;
+  display: block;
   transition: transform .3s ease, opacity .3s ease;
+  transform-origin: center;
 }
 
-.nav-toggle.open .bar:nth-child(1){
-  transform: translateY(8px) rotate(45deg);
-}
-.nav-toggle.open .bar:nth-child(2){
-  opacity: 0;
-}
-.nav-toggle.open .bar:nth-child(3){
-  transform: translateY(-8px) rotate(-45deg);
-}
+/* Animation en croix */
+.nav-toggle.open .bar:nth-child(1){ transform: translateY(8px) rotate(45deg); }
+.nav-toggle.open .bar:nth-child(2){ opacity: 0; }
+.nav-toggle.open .bar:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
 
 /**********************************************************
   7) OVERLAY + DRAWER
@@ -156,19 +148,15 @@ section{
   inset: 0;
   background: rgba(0,0,0,.45);
   backdrop-filter: blur(2px);
+  z-index: 10000;
   opacity: 0;
   transition: opacity .25s ease;
-  z-index: 9999;
 }
 
-.overlay.show{
-  opacity: 1;
-}
+.overlay.show{ opacity: 1; }
+.overlay[hidden]{ display: none !important; }
 
-.overlay[hidden]{
-  display: none !important;
-}
-
+/* Panneau (drawer) vert à gauche */
 .drawer{
   position: fixed;
   top: 60px;
@@ -176,22 +164,17 @@ section{
   height: 70vh;
   width: min(260px, 86vw);
   background: var(--drawer-green);
-  color: #fff;
+  backdrop-filter: blur(6px);
   border-radius: 10px;
-  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  color: #fff;
   transform: translateX(-120%);
   transition: transform .3s ease;
-  z-index: 10000;
-  overflow-y: auto;
+  z-index: 10001;
+  overflow: auto;
 }
 
-.drawer.open{
-  transform: translateX(0);
-}
-
-.drawer *{
-  text-shadow: none;
-}
+.drawer.open{ transform: translateX(0); }
 
 .drawer-menu{
   list-style: none;
@@ -199,22 +182,31 @@ section{
   padding: 12px;
 }
 
-.drawer-menu li + li{
-  margin-top: 6px;
-}
+.drawer-menu li + li{ margin-top: 6px; }
 
 .drawer-menu a{
   display: block;
-  padding: 14px;
+  padding: 14px 14px;
   border-radius: 8px;
   color: #fff;
   text-decoration: none;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
 .drawer-menu a:hover,
 .drawer-menu a:focus{
   background: var(--hover-grey);
+}
+
+/* Mobile : panneau plus large */
+@media (max-width: 480px){
+  .drawer{
+    top: 56px;
+    left: 8px;
+    height: 72vh;
+    width: 90vw;
+  }
 }
 
 /**********************************************************
@@ -227,36 +219,59 @@ form{
   max-width: 640px;
 }
 
+label{
+  display: grid;
+  gap: 6px;
+  font-weight: 700;
+}
+
 input, textarea{
   padding: 12px 14px;
-  border-radius: 10px;
   border: 1px solid rgba(0,0,0,.25);
+  border-radius: 10px;
+  background: rgba(255,255,255,.92);
+  color: #111;
   font: inherit;
+  outline: none;
+  transition: box-shadow .15s ease, border-color .15s ease;
 }
 
 textarea{
+  resize: vertical;
   min-height: 120px;
 }
 
+input:focus, textarea:focus{
+  border-color: rgba(34,131,96,.85);
+  box-shadow: 0 0 0 3px rgba(34,131,96,.18);
+}
+
+/* Bouton principal */
 .btn-gold{
   border: none;
   background: #F4C430;
+  color: #111;
   font-weight: 800;
   padding: 12px 26px;
   border-radius: 999px;
   cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,.15);
+  transition: background .15s ease, transform .02s ease;
 }
+
+.btn-gold:hover{ background: #e3b82a; }
+.btn-gold:active{ transform: translateY(1px); }
 
 /**********************************************************
-  9) FOOTER
+  9) PIED DE PAGE
 **********************************************************/
 .site-footer{
-  padding: 40px 5%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: left;
 }
 
-.site-footer small{
-  opacity: .9;
-}
+.site-footer small{ opacity: .9; }
 
 /**********************************************************
   10) UTILITAIRES
@@ -266,11 +281,9 @@ textarea{
   margin-inline: auto;
 }
 
-body.menu-open{
-  overflow: hidden;
-}
+body.menu-open{ overflow: hidden; }
 
 :focus-visible{
-  outline: 3px solid rgba(42,157,143,.55);
+  outline: 3px solid rgba(34,131,96,.40);
   outline-offset: 3px;
 }
