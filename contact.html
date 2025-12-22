@@ -4,12 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact – LUCILE BELLIER</title>
-  <meta name="description" content="Formulaire de contact – LUCILE BELLIER" />
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
 
-  <!-- MENU HAMBURGER -->
   <header class="site-header">
     <button class="nav-toggle" aria-expanded="false" aria-controls="drawer" aria-label="Ouvrir le menu">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -20,7 +19,6 @@
     <nav id="drawer" class="drawer" aria-hidden="true">
       <ul class="drawer-menu">
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="vote.html">Vote</a></li>
         <li><a href="apropos.html">À propos</a></li>
         <li><a href="projets.html">Projets</a></li>
         <li><a href="contact.html" aria-current="page">Contact</a></li>
@@ -28,35 +26,37 @@
     </nav>
   </header>
 
-  <!-- CONTENU CONTACT -->
-  <main class="page contact-wrapper">
-    <section class="contact-card" aria-labelledby="contact-title">
-      <h1 id="contact-title" class="contact-title">Contact</h1>
-      <p class="contact-intro">Un projet, une retouche ou une création sur mesure ? Écrivez-moi.</p>
+  <main class="page">
+    <h1 class="page-title">Contact</h1>
+    <p class="page-lede">Un projet, une retouche ou une création sur mesure ? Écris-moi.</p>
 
+    <section class="section">
+      <h2>Message</h2>
 
-  <!-- formulaire pour envoyer mail -->
-      <form action="https://formsubmit.co/lubellier@gmail.com" method="POST" class="contact-form" novalidate>
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://www.lucilebellier.fr/merci.html">
+      <!-- Option simple (sans backend) : mailto.
+           Remplace TON_EMAIL par ton adresse. -->
+      <form action="mailto:TON_EMAIL" method="post" enctype="text/plain">
+        <label>
+          Nom
+          <input name="nom" type="text" autocomplete="name" required />
+        </label>
 
-        <div class="field">
-          <label for="name">Nom</label>
-          <input id="name" name="name" type="text" required>
-        </div>
+        <label>
+          Email
+          <input name="email" type="email" autocomplete="email" required />
+        </label>
 
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required>
-        </div>
+        <label>
+          Message
+          <textarea name="message" required placeholder="Dis-moi : type de pièce, délai, inspirations, contraintes..."></textarea>
+        </label>
 
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-
-        <button type="submit" class="btn-gold">Envoyer</button>
+        <button class="btn-gold" type="submit">Envoyer</button>
       </form>
+
+      <p class="hint">
+        Astuce : si tu veux un formulaire “pro” (sans ouvrir la messagerie), on peut brancher un service de formulaire externe.
+      </p>
     </section>
   </main>
 
@@ -64,6 +64,5 @@
     <small>© <span id="year"></span> Tous droits réservés</small>
   </footer>
 
-  <script src="script.js?v=13" defer></script>
 </body>
 </html>
