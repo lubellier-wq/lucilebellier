@@ -1,7 +1,7 @@
 /**********************************************************
   0) POLICE LOCALE (facultatif)
 **********************************************************/
-@font-face {
+@font-face{
   font-family: "Inconsolata";
   src: url("./Rakesly Bd.otf?v=1") format("truetype");
   font-weight: 400;
@@ -10,11 +10,11 @@
 }
 
 /**********************************************************
-  1) BASE DU SITE + VARIABLES
+  1) BASE + VARIABLES
 **********************************************************/
-* { box-sizing: border-box; }
+*{ box-sizing: border-box; }
 
-html {
+html{
   height: 100%;
   scroll-behavior: smooth;
 }
@@ -22,11 +22,11 @@ html {
 :root{
   --base-font-size: clamp(18px, 1.8vw, 20px);
   --drawer-green: rgba(34, 131, 96, .96);
-  --hover-grey: rgba(0,0,0,.18);
+  --hover-grey: rgba(0,0,0,.12);
 }
 
 /**********************************************************
-  2) BODY — FOND CLAIR TEXTURÉ (OPTION 1)
+  2) FOND (CLAIR + TEXTURÉ DISCRET) + TYPO
 **********************************************************/
 body{
   margin: 0;
@@ -36,33 +36,36 @@ body{
   line-height: 1.7;
   color: #111;
 
-  /* Fond clair + ambiance bordeaux très légère + micro-grain discret */
+  /* Fond clair, ambiance bordeaux très légère, grain subtil (sans image) */
   background-color: #f6f1ef;
   background-image:
-    linear-gradient(0deg, rgba(72,34,23,0.06), rgba(72,34,23,0.06)),
-    radial-gradient(rgba(0,0,0,0.035) 1px, transparent 1px);
-  background-size: auto, 28px 28px;
+    linear-gradient(0deg, rgba(72,34,23,0.045), rgba(72,34,23,0.045)),
+    radial-gradient(rgba(0,0,0,0.028) 1px, transparent 1px);
+  background-size: auto, 30px 30px;
   background-position: center, 0 0;
 }
 
 /* Confort de lecture */
-p, li { max-width: 70ch; }
+p, li{ max-width: 70ch; }
+
+/* Pas d'effet néon : pas de text-shadow global */
 
 /**********************************************************
-  3) MARGES GLOBALES
+  3) MARGES GLOBALES + ANCRAGES
 **********************************************************/
 :where(.hero, main, section, footer, .site-footer){
   padding-inline: 5%;
 }
 
-/* Ancrage propre pour les scrolls sous le header fixe */
-section { scroll-margin-top: 90px; }
+section{
+  scroll-margin-top: 90px;
+}
 
 /**********************************************************
-  4) HERO (ENTÊTE)
+  4) HERO
 **********************************************************/
 .hero{
-  padding-top: 60px;     /* espace sous le bouton fixe */
+  padding-top: 60px; /* espace sous le bouton/menu fixe */
   text-align: left;
 }
 
@@ -81,18 +84,16 @@ section { scroll-margin-top: 90px; }
 }
 
 /**********************************************************
-  5) CONTENU D’ACCUEIL
+  5) CONTENU ACCUEIL
 **********************************************************/
-.home { padding-block: 10px 40px; }
+.home{ padding-block: 10px 40px; }
 
-.home-text{
-  max-width: 720px;
-}
+.home-text{ max-width: 720px; }
 
 .home-text p{ margin: 0 0 1.1em; }
 
 /**********************************************************
-  6) MENU HAMBURGER (slide-in gauche)
+  6) MENU HAMBURGER
 **********************************************************/
 .site-header{
   position: fixed;
@@ -123,7 +124,7 @@ section { scroll-margin-top: 90px; }
   background: var(--hover-grey);
 }
 
-/* Barres du hamburger */
+/* Barres */
 .nav-toggle .bar{
   width: 40px;
   height: 3px;
@@ -135,7 +136,7 @@ section { scroll-margin-top: 90px; }
   transform-origin: center;
 }
 
-/* Animation en croix */
+/* Animation croix */
 .nav-toggle.open .bar:nth-child(1){ transform: translateY(8px) rotate(45deg); }
 .nav-toggle.open .bar:nth-child(2){ opacity: 0; }
 .nav-toggle.open .bar:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
@@ -148,15 +149,14 @@ section { scroll-margin-top: 90px; }
   inset: 0;
   background: rgba(0,0,0,.45);
   backdrop-filter: blur(2px);
-  z-index: 10000;
   opacity: 0;
   transition: opacity .25s ease;
+  z-index: 10000;
 }
 
 .overlay.show{ opacity: 1; }
 .overlay[hidden]{ display: none !important; }
 
-/* Panneau (drawer) vert à gauche */
 .drawer{
   position: fixed;
   top: 60px;
@@ -196,17 +196,12 @@ section { scroll-margin-top: 90px; }
 
 .drawer-menu a:hover,
 .drawer-menu a:focus{
-  background: var(--hover-grey);
+  background: rgba(0,0,0,.18);
 }
 
 /* Mobile : panneau plus large */
 @media (max-width: 480px){
-  .drawer{
-    top: 56px;
-    left: 8px;
-    height: 72vh;
-    width: 90vw;
-  }
+  .drawer{ top: 56px; left: 8px; height: 72vh; width: 90vw; }
 }
 
 /**********************************************************
@@ -227,7 +222,7 @@ label{
 
 input, textarea{
   padding: 12px 14px;
-  border: 1px solid rgba(0,0,0,.25);
+  border: 1px solid rgba(0,0,0,.20);
   border-radius: 10px;
   background: rgba(255,255,255,.92);
   color: #111;
@@ -242,8 +237,8 @@ textarea{
 }
 
 input:focus, textarea:focus{
-  border-color: rgba(34,131,96,.85);
-  box-shadow: 0 0 0 3px rgba(34,131,96,.18);
+  border-color: rgba(34,131,96,.75);
+  box-shadow: 0 0 0 3px rgba(34,131,96,.16);
 }
 
 /* Bouton principal */
@@ -255,7 +250,7 @@ input:focus, textarea:focus{
   padding: 12px 26px;
   border-radius: 999px;
   cursor: pointer;
-  box-shadow: 0 6px 16px rgba(0,0,0,.15);
+  box-shadow: 0 6px 16px rgba(0,0,0,.14);
   transition: background .15s ease, transform .02s ease;
 }
 
@@ -263,7 +258,7 @@ input:focus, textarea:focus{
 .btn-gold:active{ transform: translateY(1px); }
 
 /**********************************************************
-  9) PIED DE PAGE
+  9) FOOTER
 **********************************************************/
 .site-footer{
   padding-top: 40px;
@@ -281,9 +276,11 @@ input:focus, textarea:focus{
   margin-inline: auto;
 }
 
+/* Bloque le scroll quand le menu est ouvert */
 body.menu-open{ overflow: hidden; }
 
+/* Focus clavier visible */
 :focus-visible{
-  outline: 3px solid rgba(34,131,96,.40);
+  outline: 3px solid rgba(34,131,96,.35);
   outline-offset: 3px;
 }
