@@ -44,11 +44,16 @@ body {
   line-height: 1.7;
   color: #000; /* texte noir */
 
-  /* ✅ Image de fond */
-  background-image: url("carrelagevert.png");
-  background-repeat: no-repeat;    /* une seule fois */
-  background-position: center;     /* centrée */
-  background-size: cover;          /* couvre tout l’écran */
+ /* Fond bordeaux texturé — léger et rapide */
+body{
+  background-color: #482217;
+
+  background-image:
+    radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    radial-gradient(rgba(0,0,0,0.08) 1px, transparent 1px);
+
+  background-size: 48px 48px, 72px 72px;
+  background-position: 0 0, 24px 24px;
 }
 
 /* MARGE GLOBALE — 5% à gauche/droite pour tout le contenu (pas le menu fixe) */
