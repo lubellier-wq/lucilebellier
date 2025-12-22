@@ -1,4 +1,4 @@
-// MENU HAMBURGER + ANNEE DU FOOTER — version robuste pour toutes les pages
+// Menu hamburger + année du footer (robuste sur toutes les pages)
 (function () {
   function setYear() {
     const yearEl = document.getElementById("year");
@@ -30,7 +30,6 @@
 
       document.body.classList.add("menu-open");
 
-      // Met le focus dans le menu (accessibilité)
       const firstLink = drawer.querySelector("a");
       if (firstLink) firstLink.focus();
     };
@@ -50,7 +49,6 @@
         if (!overlay.classList.contains("show")) overlay.hidden = true;
       }, 250);
 
-      // Rend le focus à l’élément précédent
       if (lastFocused && typeof lastFocused.focus === "function") {
         lastFocused.focus();
       }
