@@ -1,5 +1,5 @@
 /**********************************************************
-  0) POLICE LOCALE (facultatif)
+  0) POLICE
 **********************************************************/
 @font-face{
   font-family: "Inconsolata";
@@ -10,33 +10,34 @@
 }
 
 /**********************************************************
-  1) BASE + VARIABLES
+  1) BASE
 **********************************************************/
 *{ box-sizing: border-box; }
 
-html{
+html, body{
   height: 100%;
+}
+
+html{
   scroll-behavior: smooth;
 }
 
 :root{
   --base-font-size: clamp(18px, 1.8vw, 20px);
-  --drawer-green: rgba(34, 131, 96, .96);
+  --drawer-green: rgba(34,131,96,.96);
   --hover-grey: rgba(0,0,0,.12);
 }
 
 /**********************************************************
-  2) FOND (CLAIR + TEXTURÉ DISCRET) + TYPO
+  2) BODY — FOND (INCHANGÉ)
 **********************************************************/
 body{
   margin: 0;
-  min-height: 100%;
   font-family: "Inconsolata", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   font-size: var(--base-font-size);
   line-height: 1.7;
   color: #111;
 
-  /* Fond clair, ambiance bordeaux très légère, grain subtil (sans image) */
   background-color: #f6f1ef;
   background-image:
     linear-gradient(0deg, rgba(72,34,23,0.045), rgba(72,34,23,0.045)),
@@ -45,51 +46,10 @@ body{
   background-position: center, 0 0;
 }
 
-/* Confort de lecture */
 p, li{ max-width: 70ch; }
 
 /**********************************************************
-  3) MARGES GLOBALES + ANCRAGES
-**********************************************************/
-:where(.hero, main, section, footer, .site-footer){
-  padding-inline: 5%;
-}
-
-section{
-  scroll-margin-top: 90px;
-}
-
-/**********************************************************
-  4) HERO (si tu l'utilises sur d'autres pages)
-**********************************************************/
-.hero{
-  padding-top: 60px;
-  text-align: left;
-}
-
-.hero-title{
-  margin: 0 0 .25em 0;
-  font-size: clamp(2.4rem, 6vw, 3.6rem);
-  line-height: 1.1;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-
-.hero-subtitle{
-  margin: .2em 0 0 0;
-  font-size: clamp(1.2rem, 3.5vw, 1.9rem);
-  font-weight: 700;
-}
-
-/**********************************************************
-  5) CONTENU ACCUEIL (si tu l'utilises ailleurs)
-**********************************************************/
-.home{ padding-block: 10px 40px; }
-.home-text{ max-width: 720px; }
-.home-text p{ margin: 0 0 1.1em; }
-
-/**********************************************************
-  6) MENU HAMBURGER
+  3) MENU HAMBURGER
 **********************************************************/
 .site-header{
   position: fixed;
@@ -98,7 +58,6 @@ section{
   z-index: 10000;
 }
 
-/* Bouton hamburger */
 .nav-toggle{
   display: flex;
   flex-direction: column;
@@ -107,12 +66,10 @@ section{
   width: 56px;
   height: 44px;
   margin: 16px;
-  padding: 0;
   background: transparent;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  z-index: 10001;
 }
 
 .nav-toggle:hover,
@@ -120,25 +77,21 @@ section{
   background: var(--hover-grey);
 }
 
-/* Barres */
 .nav-toggle .bar{
   width: 40px;
   height: 3px;
   background: #111;
   border-radius: 2px;
   margin: 5px 0;
-  display: block;
   transition: transform .3s ease, opacity .3s ease;
-  transform-origin: center;
 }
 
-/* Animation croix */
 .nav-toggle.open .bar:nth-child(1){ transform: translateY(8px) rotate(45deg); }
 .nav-toggle.open .bar:nth-child(2){ opacity: 0; }
 .nav-toggle.open .bar:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
 
 /**********************************************************
-  7) OVERLAY + DRAWER
+  4) OVERLAY + DRAWER
 **********************************************************/
 .overlay{
   position: fixed;
@@ -147,7 +100,7 @@ section{
   backdrop-filter: blur(2px);
   opacity: 0;
   transition: opacity .25s ease;
-  z-index: 10000;
+  z-index: 9999;
 }
 
 .overlay.show{ opacity: 1; }
@@ -160,204 +113,88 @@ section{
   height: 70vh;
   width: min(260px, 86vw);
   background: var(--drawer-green);
-  backdrop-filter: blur(6px);
+  color: #fff;
   border-radius: 10px;
   box-shadow: 0 12px 30px rgba(0,0,0,.25);
-  color: #fff;
   transform: translateX(-120%);
   transition: transform .3s ease;
   z-index: 10001;
-  overflow: auto;
 }
 
 .drawer.open{ transform: translateX(0); }
 
-.drawer-menu{
-  list-style: none;
-  margin: 0;
-  padding: 12px;
-}
-
-.drawer-menu li + li{ margin-top: 6px; }
-
-.drawer-menu a{
-  display: block;
-  padding: 14px 14px;
-  border-radius: 8px;
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-.drawer-menu a:hover,
-.drawer-menu a:focus{
-  background: rgba(0,0,0,.18);
-}
-
-/* Mobile : panneau plus large */
-@media (max-width: 480px){
-  .drawer{ top: 56px; left: 8px; height: 72vh; width: 90vw; }
-}
-
 /**********************************************************
-  8) FORMULAIRES
+  5) INDEX — HERO ABSOLU (QUINCONCE MAÎTRISÉ)
 **********************************************************/
-form{
-  display: grid;
-  gap: 12px;
-  margin-top: 16px;
-  max-width: 640px;
+.page{
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden; /* autorise images collées aux bords */
 }
 
-label{
-  display: grid;
-  gap: 6px;
-  font-weight: 700;
+/* PHOTO — COLLÉE BAS GAUCHE */
+.home-hero__photo{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 }
 
-input, textarea{
-  padding: 12px 14px;
-  border: 1px solid rgba(0,0,0,.20);
-  border-radius: 10px;
-  background: rgba(255,255,255,.92);
-  color: #111;
-  font: inherit;
-  outline: none;
-  transition: box-shadow .15s ease, border-color .15s ease;
+.home-hero__photo img{
+  width: min(900px, 75vw); /* PLUS GROS */
+  height: auto;
+  display: block;
 }
 
-textarea{
-  resize: vertical;
-  min-height: 120px;
+/* LOGO — HAUT DROITE */
+.home-hero__brand{
+  position: absolute;
+  top: 120px;  /* sous le menu */
+  right: 0;
+  z-index: 2;
 }
 
-input:focus, textarea:focus{
-  border-color: rgba(34,131,96,.75);
-  box-shadow: 0 0 0 3px rgba(34,131,96,.16);
+.home-hero__logo{
+  width: min(900px, 70vw);
+  height: auto;
+  display: block;
 }
-
-/* Bouton principal */
-.btn-gold{
-  border: none;
-  background: #F4C430;
-  color: #111;
-  font-weight: 800;
-  padding: 12px 26px;
-  border-radius: 999px;
-  cursor: pointer;
-  box-shadow: 0 6px 16px rgba(0,0,0,.14);
-  transition: background .15s ease, transform .02s ease;
-}
-
-.btn-gold:hover{ background: #e3b82a; }
-.btn-gold:active{ transform: translateY(1px); }
 
 /**********************************************************
-  9) FOOTER
+  6) FOOTER
 **********************************************************/
 .site-footer{
-  padding-top: 40px;
-  padding-bottom: 40px;
-  text-align: left;
+  position: relative;
+  z-index: 3;
+  padding: 40px 5%;
 }
 
 .site-footer small{ opacity: .9; }
 
 /**********************************************************
-  10) UTILITAIRES
+  7) MOBILE — ON SIMPLIFIE
 **********************************************************/
-.container{
-  max-width: 1100px;
-  margin-inline: auto;
-}
-
-/* Bloque le scroll quand le menu est ouvert */
-body.menu-open{ overflow: hidden; }
-
-/* Focus clavier visible */
-:focus-visible{
-  outline: 3px solid rgba(34,131,96,.35);
-  outline-offset: 3px;
-}
-
-/**********************************************************
-  11) INDEX : QUINCONCE PHOTO / LOGO (UNIQUE VERSION)
-  - photo (gauche) plus grande + ancrée bas-gauche
-  - logo (droite) plus grand + ancré haut-droite
-**********************************************************/
-.home-hero{
-  padding-top: 90px;         /* passe sous le bouton hamburger */
-  padding-bottom: 40px;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: stretch;
-  gap: clamp(24px, 4vw, 64px);
-
-  min-height: calc(100vh - 140px);
-}
-
-/* PHOTO — bas gauche */
-.home-hero__photo{
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-}
-
-.home-hero__photo img{
-  width: min(640px, 120%);
-  max-width: none;           /* autorise > 100% */
-  height: auto;
-  display: block;
-
-  /* décale vers bas-gauche (quinconce) */
-  transform: translate(-6%, 10%);
-}
-
-/* LOGO — haut droite */
-.home-hero__brand{
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-}
-
-.home-hero__logo{
-  width: min(820px, 145%);
-  max-width: none;           /* autorise > 100% */
-  height: auto;
-  display: block;
-
-  /* décale vers haut-droite (quinconce) */
-  transform: translate(10%, -12%);
-}
-
-/* Responsive : empiler sur mobile */
 @media (max-width: 820px){
-  .home-hero{
-    grid-template-columns: 1fr;
-    min-height: auto;
-    padding-top: 90px;
-    padding-bottom: 30px;
-  }
-
   .home-hero__brand{
-    order: 1;
+    position: static;
+    margin-top: 120px;
+    display: flex;
     justify-content: center;
-    align-items: center;
   }
 
   .home-hero__photo{
-    order: 2;
+    position: static;
+    display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 20px;
   }
 
-  /* Sur mobile, on annule les décalages */
   .home-hero__logo,
   .home-hero__photo img{
-    width: min(560px, 92%);
-    max-width: 100%;
-    transform: none;
+    width: min(520px, 90%);
+  }
+
+  .page{
+    overflow: visible;
   }
 }
