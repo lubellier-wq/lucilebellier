@@ -4,12 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projets – LUCILE BELLIER</title>
-  <meta name="description" content="Projets de LUCILE BELLIER" />
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
 
-  <!-- MENU HAMBURGER -->
   <header class="site-header">
     <button class="nav-toggle" aria-expanded="false" aria-controls="drawer" aria-label="Ouvrir le menu">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -20,7 +19,6 @@
     <nav id="drawer" class="drawer" aria-hidden="true">
       <ul class="drawer-menu">
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="vote.html">Vote</a></li>
         <li><a href="apropos.html">À propos</a></li>
         <li><a href="projets.html" aria-current="page">Projets</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -28,15 +26,48 @@
     </nav>
   </header>
 
-  <main class="page" style="padding-top:110px;">
-    <h1>Projets</h1>
-    <p>test</p>
+  <main class="page">
+    <h1 class="page-title">Projets</h1>
+    <p class="page-lede">
+      Quelques réalisations (sur-mesure, retouches, transformations). Clique pour discuter d’un projet similaire.
+    </p>
+
+    <section class="project-grid">
+      <!-- CARTE 1 -->
+      <article class="project-card">
+        <div class="project-media" aria-hidden="true"></div>
+        <h2 class="project-title">Pièce sur mesure</h2>
+        <p class="project-desc">Description courte : matière, intention, type de coupe, usage.</p>
+        <p class="project-meta"><span class="tag">Sur-mesure</span> <span class="tag">Paris</span></p>
+      </article>
+
+      <!-- CARTE 2 -->
+      <article class="project-card">
+        <div class="project-media" aria-hidden="true"></div>
+        <h2 class="project-title">Retouche / ajustement</h2>
+        <p class="project-desc">Ex : cintrage, ourlet, reprise d’épaules, transformation.</p>
+        <p class="project-meta"><span class="tag">Retouche</span></p>
+      </article>
+
+      <!-- CARTE 3 -->
+      <article class="project-card">
+        <div class="project-media" aria-hidden="true"></div>
+        <h2 class="project-title">Transformation</h2>
+        <p class="project-desc">Ex : donner une nouvelle vie à une pièce, changer la forme, moderniser.</p>
+        <p class="project-meta"><span class="tag">Upcycling</span></p>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2>Envie d’une pièce ?</h2>
+      <p>Dis-moi ce que tu imagines (photos/inspirations bienvenues). Je te réponds rapidement.</p>
+      <p><a class="btn-gold" href="contact.html">Me contacter</a></p>
+    </section>
   </main>
 
   <footer class="site-footer">
     <small>© <span id="year"></span> Tous droits réservés</small>
   </footer>
 
-  <script src="script.js?v=13" defer></script>
 </body>
 </html>
