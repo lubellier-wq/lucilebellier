@@ -1,5 +1,5 @@
 /**********************************************************
-  0) POLICE LOCALE (facultatif)
+  0) POLICE LOCALE
 **********************************************************/
 @font-face {
   font-family: "Inconsolata";
@@ -10,84 +10,67 @@
 }
 
 /**********************************************************
-  1) BASE DU SITE + ACCESSIBILITÉ
-  - Couleur du texte : noir
-  - Marges latérales : via .container (5%)
-  - Typo plus grande + halo pour détacher sur les fonds
+  1) BASE DU SITE + VARIABLES
 **********************************************************/
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
 
 :root{
-  /* Taille de base plus lisible */
   --base-font-size: clamp(18px, 1.8vw, 20px);
-  /* Halo clair derrière les lettres (améliore la lisibilité) */
-  --text-halo: 0 1px 0 rgba(255,255,255,.75), 0 0 10px rgba(255,255,255,.35);
-  /* Vert du panneau */
+  --text-halo: 0 1px 0 rgba(255,255,255,.75),
+               0 0 10px rgba(255,255,255,.35);
   --drawer-green: rgba(34, 131, 96, .96);
-  /* Gris transparent pour hover (mêmes sensations que le bouton) */
   --hover-grey: rgba(0,0,0,.20);
 }
 
-/* Fond éventuel (garde si tu utilises un motif d'arrière-plan) */
-/* body peut rester blanc si tu ne mets pas d'image de fond */
-html, body { height: 100%; }  /* couverture correcte en hauteur */
-
-
-
-/* Fond carrelage plein écran + texte noir */
-html, body { height: 100%; }
-
-body {
-  font-family: "Inconsolata", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  margin: 0;
-  line-height: 1.7;
-  color: #000; /* texte noir */
-
- /* Fond bordeaux texturé — léger et rapide */
+/**********************************************************
+  2) BODY — FOND BORDEAUX TEXTURÉ (SANS IMAGE)
+**********************************************************/
 body{
-  background-color: #482217;
+  margin: 0;
+  min-height: 100%;
+  font-family: "Inconsolata", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.7;
+  font-size: var(--base-font-size);
+  color: #000;
 
+  /* FOND BORDEAUX TEXTURÉ */
+  background-color: #482217;
   background-image:
     radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
     radial-gradient(rgba(0,0,0,0.08) 1px, transparent 1px);
-
   background-size: 48px 48px, 72px 72px;
   background-position: 0 0, 24px 24px;
 }
 
-/* MARGE GLOBALE — 5% à gauche/droite pour tout le contenu (pas le menu fixe) */
-:where(.hero, main, section, footer, .site-footer) {
-  padding-inline: 5%; /* = padding-left + padding-right */
+/* Texte lisible sur fond sombre */
+h1, h2, h3, p, li, small, label, a {
+  text-shadow: var(--text-halo);
 }
-
-/* Mobile : évite les saccades liées à background-attachment */
-@media (max-width: 768px) {
-  body { background-attachment: scroll; }
-}
-
-/* Applique un halo discret aux textes importants */
-h1, h2, h3, p, li, small, label, a { text-shadow: var(--text-halo); }
-
-/* Désactive le halo dans le panneau (texte clair sur fond foncé) */
-.drawer * { text-shadow: none; }
-
-/* MARGE GLOBALE — 5% à gauche/droite pour tout le contenu (pas le menu fixe) */
-:where(.hero, main, section, footer, .site-footer) {
-  padding-inline: 5%; /* = padding-left + padding-right */
-}
-
-/* Ancrage propre pour les scrolls sous le header fixe */
-section { scroll-margin-top: 90px; }
 
 /**********************************************************
-  2) ENTÊTE (HERO)
-  - Texte aligné à gauche (comme demandé)
+  3) MARGES GLOBALES
+**********************************************************/
+:where(.hero, main, section, footer, .site-footer){
+  padding-inline: 5%;
+}
+
+section{
+  scroll-margin-top: 90px;
+}
+
+/**********************************************************
+  4) HERO
 **********************************************************/
 .hero{
-  padding-top: 60px;          /* espace sous le bouton fixe */
-  text-align: left;           /* ✅ aligné à gauche */
+  padding-top: 60px;
+  text-align: left;
 }
+
 .hero-title{
   margin: 0 0 .25em 0;
   font-size: clamp(2.4rem, 6vw, 3.6rem);
@@ -95,6 +78,7 @@ section { scroll-margin-top: 90px; }
   letter-spacing: .12em;
   text-transform: uppercase;
 }
+
 .hero-subtitle{
   margin: .2em 0 0 0;
   font-size: clamp(1.2rem, 3.5vw, 1.9rem);
@@ -102,158 +86,191 @@ section { scroll-margin-top: 90px; }
 }
 
 /**********************************************************
-  3) CONTENU D’ACCUEIL
-  - Bloc de texte à gauche, largeur confortable
+  5) CONTENU ACCUEIL
 **********************************************************/
-
-.home { padding-block: 10px 40px; }
+.home{
+  padding-block: 10px 40px;
+}
 
 .home-text{
-  max-width: 720px;   /* largeur de lecture */
-  /* Le texte est à gauche naturellement (pas de flex à droite) */
+  max-width: 720px;
 }
-.home-text p{ margin: 0 0 1.1em; }
+
+.home-text p{
+  margin: 0 0 1.1em;
+}
 
 /**********************************************************
-  4) MENU HAMBURGER (slide-in gauche)
+  6) MENU HAMBURGER
 **********************************************************/
-.site-header { position: fixed; top: 0; left: 0; z-index: 10000; }
-
-/* Bouton hamburger */
-.nav-toggle{
-  display: flex; flex-direction: column; justify-content: center; align-items: center;
-  width: 56px; height: 44px;
-  margin: 16px; padding: 0;
-  background: transparent;
-  border: none; border-radius: 8px;
-  cursor: pointer;
-  z-index: 10001;
+.site-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
 }
-.nav-toggle:hover,
-.nav-toggle:focus{ background: var(--hover-grey); }
 
-/* Barres du hamburger */
+.nav-toggle{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 44px;
+  margin: 16px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.nav-toggle:hover,
+.nav-toggle:focus{
+  background: var(--hover-grey);
+}
+
 .nav-toggle .bar{
-  width: 40px; height: 3px;
-  background: #000;          /* barres noires (cohérent avec texte noir) */
+  width: 40px;
+  height: 3px;
+  background: #000;
   border-radius: 2px;
   margin: 5px 0;
-  display: block;
   transition: transform .3s ease, opacity .3s ease;
-  transform-origin: center;
 }
 
-/* Animation en croix */
-.nav-toggle.open .bar:nth-child(1){ transform: translateY(8px) rotate(45deg); }
-.nav-toggle.open .bar:nth-child(2){ opacity: 0; }
-.nav-toggle.open .bar:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
+.nav-toggle.open .bar:nth-child(1){
+  transform: translateY(8px) rotate(45deg);
+}
+.nav-toggle.open .bar:nth-child(2){
+  opacity: 0;
+}
+.nav-toggle.open .bar:nth-child(3){
+  transform: translateY(-8px) rotate(-45deg);
+}
 
-/* Overlay plein écran quand le menu est ouvert */
+/**********************************************************
+  7) OVERLAY + DRAWER
+**********************************************************/
 .overlay{
-  position: fixed; inset: 0;
+  position: fixed;
+  inset: 0;
   background: rgba(0,0,0,.45);
   backdrop-filter: blur(2px);
-  z-index: 10000;
-  opacity: 0; transition: opacity .25s ease;
+  opacity: 0;
+  transition: opacity .25s ease;
+  z-index: 9999;
 }
-.overlay.show{ opacity: 1; }
-.overlay[hidden]{ display: none !important; }
 
-/* Panneau (drawer) vert à gauche */
+.overlay.show{
+  opacity: 1;
+}
+
+.overlay[hidden]{
+  display: none !important;
+}
+
 .drawer{
-  position: fixed; top: 60px; left: 10px;
-  height: 70vh; width: min(260px, 86vw);
-  background: var(--drawer-green);        /* ✅ vert */
-  backdrop-filter: blur(6px);
+  position: fixed;
+  top: 60px;
+  left: 10px;
+  height: 70vh;
+  width: min(260px, 86vw);
+  background: var(--drawer-green);
+  color: #fff;
   border-radius: 10px;
   box-shadow: 0 12px 30px rgba(0,0,0,.35);
-  color: #fff;                             /* texte du panneau en clair */
   transform: translateX(-120%);
   transition: transform .3s ease;
-  z-index: 10001;
-  overflow: auto;
+  z-index: 10000;
+  overflow-y: auto;
 }
-.drawer.open{ transform: translateX(0); }
 
-/* Liens du menu — survol gris transparent, comme la croix */
-.drawer-menu{ list-style: none; margin: 0; padding: 12px; }
-.drawer-menu li + li{ margin-top: 6px; }
+.drawer.open{
+  transform: translateX(0);
+}
+
+.drawer *{
+  text-shadow: none;
+}
+
+.drawer-menu{
+  list-style: none;
+  margin: 0;
+  padding: 12px;
+}
+
+.drawer-menu li + li{
+  margin-top: 6px;
+}
+
 .drawer-menu a{
   display: block;
-  padding: 14px 14px;
+  padding: 14px;
   border-radius: 8px;
-  color: #fff; text-decoration: none;
-  font-size: 1.1rem; font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
 }
+
 .drawer-menu a:hover,
 .drawer-menu a:focus{
-  background: var(--hover-grey);           /* ✅ gris transparent */
-}
-
-/* Mobile : panneau plus large */
-@media (max-width: 480px){
-  .drawer{ top: 56px; left: 8px; height: 72vh; width: 90vw; }
+  background: var(--hover-grey);
 }
 
 /**********************************************************
-  5) FORMULAIRES (si tu en as sur d'autres pages)
+  8) FORMULAIRES
 **********************************************************/
 form{
-  display: grid; gap: 12px; margin-top: 16px;
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
   max-width: 640px;
 }
+
 input, textarea{
   padding: 12px 14px;
-  border: 1px solid rgba(0,0,0,.25);
   border-radius: 10px;
-  background: #fff; color: #111;
-  font: inherit; outline: none;
-  transition: box-shadow .15s ease, border-color .15s ease;
-}
-textarea{ resize: vertical; min-height: 120px; }
-input:focus, textarea:focus{
-  border-color: #2a9d8f;
-  box-shadow: 0 0 0 3px rgba(42,157,143,.25);
+  border: 1px solid rgba(0,0,0,.25);
+  font: inherit;
 }
 
-/* Bouton principal */
-.btn-gold{
-  border: none; background: #F4C430; color: #111; font-weight: 800;
-  padding: 12px 26px; border-radius: 999px; cursor: pointer;
-  box-shadow: 0 6px 16px rgba(0,0,0,.2);
-  transition: background .15s ease, transform .02s ease;
+textarea{
+  min-height: 120px;
 }
-.btn-gold:hover{ background: #e3b82a; }
-.btn-gold:active{ transform: translateY(1px); }
+
+.btn-gold{
+  border: none;
+  background: #F4C430;
+  font-weight: 800;
+  padding: 12px 26px;
+  border-radius: 999px;
+  cursor: pointer;
+}
 
 /**********************************************************
-  6) PIED DE PAGE
+  9) FOOTER
 **********************************************************/
 .site-footer{
-  padding-top: 40px; padding-bottom: 40px;
-  text-align: left;
+  padding: 40px 5%;
 }
-.site-footer small{ opacity: .9; }
 
-/* Largeur confortable sur grands écrans */
+.site-footer small{
+  opacity: .9;
+}
+
+/**********************************************************
+  10) UTILITAIRES
+**********************************************************/
 .container{
   max-width: 1100px;
   margin-inline: auto;
 }
 
-/* Utilise vraiment ta variable de taille de police */
-body{
-  font-size: var(--base-font-size);
-}
-
-/* Quand le menu est ouvert, on bloque le scroll */
 body.menu-open{
   overflow: hidden;
 }
 
-/* Focus clavier visible */
 :focus-visible{
   outline: 3px solid rgba(42,157,143,.55);
   outline-offset: 3px;
 }
-
