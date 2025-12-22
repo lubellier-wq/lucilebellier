@@ -229,3 +229,26 @@ input:focus, textarea:focus{
   text-align: left;
 }
 .site-footer small{ opacity: .9; }
+
+/* Largeur confortable sur grands écrans */
+.container{
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+/* Utilise vraiment ta variable de taille de police */
+body{
+  font-size: var(--base-font-size);
+}
+
+/* Quand le menu est ouvert, on bloque le scroll */
+body.menu-open{
+  overflow: hidden;
+}
+
+/* Focus clavier visible */
+:focus-visible{
+  outline: 3px solid rgba(42,157,143,.55);
+  outline-offset: 3px;
+}
+
