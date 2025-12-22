@@ -349,3 +349,74 @@ body.menu-open{ overflow: hidden; }
   }
 }
 
+/* ====== INDEX : QUINCONCE PHOTO / LOGO ====== */
+.home-hero{
+  padding-top: 80px;
+  padding-bottom: 40px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  gap: clamp(24px, 4vw, 64px);
+
+  min-height: calc(100vh - 120px);
+}
+
+/* PHOTO — bas gauche */
+.home-hero__photo{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.home-hero__photo img{
+  width: min(620px, 115%);
+  max-width: none;
+  height: auto;
+  display: block;
+
+  transform: translate(-4%, 6%);
+}
+
+/* LOGO — haut droite */
+.home-hero__brand{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.home-hero__logo{
+  width: min(720px, 130%);
+  max-width: none;
+  height: auto;
+  display: block;
+
+  transform: translate(6%, -6%);
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 820px){
+  .home-hero{
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 90px;
+  }
+
+  .home-hero__brand{
+    order: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home-hero__photo{
+    order: 2;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home-hero__logo,
+  .home-hero__photo img{
+    width: min(520px, 92%);
+    transform: none;
+  }
+}
