@@ -284,3 +284,68 @@ body.menu-open{ overflow: hidden; }
   outline: 3px solid rgba(34,131,96,.35);
   outline-offset: 3px;
 }
+
+/* ====== INDEX : photo gauche + logo droite ====== */
+.home-hero{
+  /* espace sous le bouton hamburger */
+  padding-top: 80px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(18px, 3vw, 44px);
+
+  /* hauteur visuelle proche de la capture */
+  min-height: calc(100vh - 140px);
+}
+
+/* Photo */
+.home-hero__photo{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.home-hero__photo img{
+  width: min(520px, 100%);
+  height: auto;
+  display: block;
+}
+
+/* Logo */
+.home-hero__brand{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-hero__logo{
+  width: min(520px, 100%);
+  height: auto;
+  display: block;
+}
+
+/* Responsive : empiler sur mobile */
+@media (max-width: 820px){
+  .home-hero{
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 90px;
+    padding-bottom: 30px;
+  }
+
+  .home-hero__photo{
+    order: 2;
+    align-items: center;
+  }
+
+  .home-hero__brand{
+    order: 1;
+  }
+
+  .home-hero__photo img,
+  .home-hero__logo{
+    width: min(520px, 92%);
+  }
+}
+
