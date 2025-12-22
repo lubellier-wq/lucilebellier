@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Accueil – LUCILE BELLIER</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <meta name="description" content="Vêtements sur mesure – LUCILE BELLIER" />
-  <link rel="stylesheet" href="styles.css?v=14">
-</head>
-<body>
 
-  <!-- MENU HAMBURGER (fixe en haut à gauche) -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
   <header class="site-header">
     <button class="nav-toggle" aria-expanded="false" aria-controls="drawer" aria-label="Ouvrir le menu">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -28,33 +28,31 @@
     </nav>
   </header>
 
-  <!-- ENTÊTE -->
-  <header class="hero container">
-    <h1 class="hero-title">LUCILE BELLIER</h1>
-    <p class="hero-subtitle">Vêtements sur mesure</p>
-  </header>
+  <main class="page">
+    <section class="home-hero" aria-label="Présentation">
+      <!-- Colonne gauche : photo -->
+      <div class="home-hero__photo">
+        <img
+          src="photoaccueil.png"
+          alt="Essayage et ajustement d’un vêtement sur mannequin"
+          loading="eager"
+        />
+      </div>
 
-  <!-- CONTENU PRINCIPAL -->
-  <main>
-    <section class="container home">
-      <div class="home-text">
-        <p>
-          Je crée des vêtements sur mesure, pensés pour s’adapter à vos envies et à votre style.
-          Chaque pièce est unique, conçue avec soin et passion.
-        </p>
-        <p>
-          Basée à Paris, je propose des retouches, des créations originales et des conseils personnalisés.
-          Contactez-moi pour discuter de votre projet !
-        </p>
+      <!-- Colonne droite : logo -->
+      <div class="home-hero__brand">
+        <img
+          class="home-hero__logo"
+          src="logoentier.png"
+          alt="Lucile Bellier — vêtements sur mesure"
+          loading="eager"
+        />
       </div>
     </section>
   </main>
 
-  <!-- PIED DE PAGE -->
-  <footer class="site-footer container">
+  <footer class="site-footer">
     <small>© <span id="year"></span> Tous droits réservés</small>
   </footer>
-
-  <script src="script.js?v=14" defer></script>
 </body>
 </html>
