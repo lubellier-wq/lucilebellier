@@ -1,4 +1,4 @@
-// ANNEE DU FOOTER + lien actif dans la barre de menu
+// Année automatique + lien actif dans le menu
 (function () {
   function setYear() {
     const yearEl = document.getElementById("year");
