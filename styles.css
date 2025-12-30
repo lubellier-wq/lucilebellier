@@ -238,3 +238,14 @@ input:focus, textarea:focus{
   .home-hero__photo{ display: flex; justify-content: center; margin-top: 16px; }
   .home-hero__logo, .home-hero__photo img{ width: min(560px, 90%); }
 }
+
+
+/**********************************************************
+  CONTENU PAGES — MARGES RESPONSIVES
+  (à propos / projets / contact)
+**********************************************************/
+.page-content{
+  padding-inline: clamp(16px, 6vw, 96px);
+  padding-top: clamp(24px, 6vh, 72px);
+  padding-bottom: clamp(32px, 8vh, 96px);
+}
