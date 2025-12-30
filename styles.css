@@ -74,7 +74,7 @@ p, li{ max-width: 70ch; }
   color: #111;
   text-decoration: none;
   font-weight: 550;   /* ordi: inchangé */
-  font-size: 1.08em;  /* ordi: inchangé */
+  font-size: 1.8em;  /* ordi: inchangé */
   letter-spacing: .03em;
   white-space: nowrap;
 }
@@ -84,7 +84,7 @@ p, li{ max-width: 70ch; }
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 28px; /* ordi: inchangé */
+  gap: 60px; /* ordi: inchangé */
   margin: 0;
   padding: 0;
 }
