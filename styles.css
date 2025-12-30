@@ -143,17 +143,21 @@ p, li{ max-width: 70ch; }
   display: block;
 }
 
-/* LOGO — haut droite (plus haut + moins gros) */
 .home-hero__brand{
   position: absolute;
-  top: 40px;
+  top: 18px;     /* un peu plus haut */
   right: 20px;
   z-index: 2;
 }
+
 .home-hero__logo{
   width: min(720px, 60vw);
   max-width: 800px;
+
   height: auto;
+  max-height: calc(100vh - var(--header-h) - 60px); /* empêche d’être coupé */
+  object-fit: contain;
+
   display: block;
 }
 
