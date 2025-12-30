@@ -11,22 +11,18 @@
 </head>
 
 <body>
-  <header class="site-header">
-    <button class="nav-toggle" aria-expanded="false" aria-controls="drawer" aria-label="Ouvrir le menu">
-      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-    </button>
+ <header class="site-header">
+  <nav class="topbar" aria-label="Navigation principale">
+    <a class="topbar__brand" href="index.html">Lucile Bellier</a>
 
-    <div class="overlay" hidden></div>
-
-    <nav id="drawer" class="drawer" aria-hidden="true">
-      <ul class="drawer-menu">
-        <li><a href="index.html" aria-current="page">Accueil</a></li>
-        <li><a href="apropos.html">À propos</a></li>
-        <li><a href="projets.html">Projets</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <ul class="topbar__menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li><a href="projets.html">Projets</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
   <main class="page">
     <section class="home-hero" aria-label="Présentation">
