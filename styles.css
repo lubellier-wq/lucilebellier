@@ -75,7 +75,7 @@ p, li{ max-width: 70ch; }
 .topbar__brand{
   color: #111;
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 650;          /* moins “bloc” */
   letter-spacing: .02em;
   white-space: nowrap;
 }
@@ -95,9 +95,10 @@ p, li{ max-width: 70ch; }
   display: inline-block;
   padding: 8px 10px;
   border-radius: 10px;
-  color: #111;
+  color: rgba(17,17,17,.92);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;          /* moins gras */
+  letter-spacing: .01em;     /* un poil plus lisible */
 }
 
 .topbar__menu a:hover,
