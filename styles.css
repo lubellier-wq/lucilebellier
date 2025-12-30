@@ -280,3 +280,73 @@ textarea:focus{
     width: min(560px, 90%);
   }
 }
+
+
+/**********************************************************
+  MOBILE UNIQUEMENT — MENU 1 LIGNE + HERO (photo bas-gauche, logo haut-centre)
+**********************************************************/
+@media (max-width: 520px){
+
+  /* 1) MENU SUR UNE SEULE LIGNE (sans toucher l’ordi) */
+  :root{ --header-h: 72px; } /* garde une barre fine sur mobile */
+
+  .topbar{
+    flex-direction: row;            /* 1 seule ligne */
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 12px;
+  }
+
+  /* le menu ne revient jamais à la ligne */
+  .topbar__menu{
+    flex-wrap: nowrap;              /* <<< empêche Contact de descendre */
+    gap: 14px;
+    overflow-x: auto;               /* si ça ne tient pas => scroll horizontal discret */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .topbar__menu::-webkit-scrollbar{ display: none; }
+
+  .topbar__menu a{
+    white-space: nowrap;
+    padding: 10px 10px;            /* zone cliquable + grande */
+    font-size: 1.02em;
+  }
+
+  /* 2) INDEX : on remet une mise en page "hero" spéciale mobile
+        (ça override ton bloc @media (max-width: 820px) qui mettait tout en static) */
+
+  /* photo en bas à gauche de l'écran */
+  .home-hero__photo{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .home-hero__photo img{
+    width: min(56vw, 320px);
+    height: auto;
+    display: block;
+  }
+
+  /* logo en haut, centré, sous la barre avec un peu d'air */
+  .home-hero__brand{
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(var(--header-h) + 14px);   /* <<< pas collé à la barre */
+    right: auto;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .home-hero__logo{
+    width: min(82vw, 420px);
+    height: auto;
+    max-height: calc(100vh - var(--header-h) - 180px); /* évite d’être coupé */
+    object-fit: contain;
+    display: block;
+  }
+}
+
