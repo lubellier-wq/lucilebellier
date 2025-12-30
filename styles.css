@@ -74,7 +74,7 @@ p, li{ max-width: 70ch; }
   color: #111;
   text-decoration: none;
   font-weight: 550;                 /* moins gras */
-  font-size: 1.08em;                /* légèrement plus grand */
+  font-size: 1.1em;                /* légèrement plus grand */
   letter-spacing: .03em;
   white-space: nowrap;
 }
