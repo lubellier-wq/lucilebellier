@@ -1,16 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projets – Lucile Bellier</title>
-  <link rel="stylesheet" href="styles.css">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 
 <body>
   <header class="site-header">
-    <nav class="topbar">
+    <nav class="topbar" aria-label="Navigation principale">
       <a class="topbar__brand" href="index.html">Lucile Bellier</a>
+
       <ul class="topbar__menu">
         <li><a href="index.html">Accueil</a></li>
         <li><a href="apropos.html">À propos</a></li>
@@ -20,7 +24,8 @@
     </nav>
   </header>
 
-  <main>
+  <!-- IMPORTANT : class="page-content" pour activer les marges -->
+  <main class="page-content">
     <h1>Projets</h1>
 
     <p>Quelques réalisations (sur-mesure, retouches, transformations). Clique pour discuter d’un projet similaire.</p>
@@ -38,8 +43,10 @@
     <p>Upcycling</p>
 
     <p>Envie d’une pièce ? Dis-moi ce que tu imagines (photos/inspirations bienvenues). Je te réponds rapidement.</p>
-
-    <p>© Tous droits réservés</p>
   </main>
+
+  <footer class="site-footer">
+    <small>© <span id="year"></span> Tous droits réservés</small>
+  </footer>
 </body>
 </html>
