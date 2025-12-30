@@ -74,8 +74,8 @@ p, li{ max-width: 70ch; }
   color: #111;
   text-decoration: none;
   font-weight: 550;                 /* moins gras */
-  font-size: 1.2em;                /* légèrement plus grand */
-  letter-spacing: .03em;
+  font-size: 2em;                /*  plus grand */
+  letter-spacing: .05em;
   white-space: nowrap;
 }
 
@@ -84,7 +84,7 @@ p, li{ max-width: 70ch; }
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 30px;                        /* PLUS D’ESPACE ENTRE LES LIENS */
+  gap: 50px;                        /* PLUS D’ESPACE ENTRE LES LIENS */
   margin: 0;
   padding: 0;
 }
