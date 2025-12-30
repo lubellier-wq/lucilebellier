@@ -1,82 +1,235 @@
-/********************************************************** 0) POLICE **********************************************************/
-@font-face{ font-family: "Inconsolata"; src: url("./Rakesly Bd.otf?v=1") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+/**********************************************************
+  0) POLICE
+**********************************************************/
+@font-face{
+  font-family: "Inconsolata";
+  src: url("./Rakesly Bd.otf?v=1") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
-/********************************************************** 1) BASE + VARIABLES **********************************************************/
+/**********************************************************
+  1) BASE + VARIABLES
+**********************************************************/
 *{ box-sizing: border-box; }
 html, body{ height: 100%; }
 html{ scroll-behavior: smooth; }
-:root{ --base-font-size: clamp(18px, 1.8vw, 20px); --menu-bg: #482217; --menu-hover: rgba(255,255,255,.12); --hover-grey: rgba(0,0,0,.12); }
 
-/********************************************************** 2) BODY — FOND CLAIR TEXTURÉ (INCHANGÉ) **********************************************************/
-body{ margin: 0; font-family: "Inconsolata", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: var(--base-font-size); line-height: 1.7; color: #111; background-color: #f6f1ef; background-image: linear-gradient(0deg, rgba(72,34,23,0.045), rgba(72,34,23,0.045)), radial-gradient(rgba(0,0,0,0.028) 1px, transparent 1px); background-size: auto, 30px 30px; background-position: center, 0 0; }
+:root{
+  --base-font-size: clamp(18px, 1.8vw, 20px);
+  --menu-bg: #482217;
+  --menu-hover: rgba(0,0,0,.06);
+  --hover-grey: rgba(0,0,0,.12);
+  --header-h: 72px;
+}
+
+/**********************************************************
+  2) BODY — FOND CLAIR TEXTURÉ
+**********************************************************/
+body{
+  margin: 0;
+  font-family: "Inconsolata", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: var(--base-font-size);
+  line-height: 1.7;
+  color: #111;
+
+  background-color: #f6f1ef;
+  background-image:
+    linear-gradient(0deg, rgba(72,34,23,0.045), rgba(72,34,23,0.045)),
+    radial-gradient(rgba(0,0,0,0.028) 1px, transparent 1px);
+  background-size: auto, 30px 30px;
+  background-position: center, 0 0;
+
+  /* important : laisse la place à la barre fixe */
+  padding-top: var(--header-h);
+}
+
 p, li{ max-width: 70ch; }
 
-/********************************************************** 3) HEADER / MENU HAMBURGER **********************************************************/
-.site-header{ position: fixed; top: 0; left: 0; z-index: 10000; }
-.nav-toggle{ display: flex; flex-direction: column; justify-content: center; align-items: center; width: 56px; height: 44px; margin: 16px; padding: 0; background: transparent; border: none; border-radius: 8px; cursor: pointer; z-index: 10001; }
-.nav-toggle:hover, .nav-toggle:focus{ background: var(--hover-grey); }
-.nav-toggle .bar{ width: 40px; height: 3px; background: #111; border-radius: 2px; margin: 5px 0; display: block; transition: transform .3s ease, opacity .3s ease; transform-origin: center; }
-.nav-toggle.open .bar:nth-child(1){ transform: translateY(8px) rotate(45deg); }
-.nav-toggle.open .bar:nth-child(2){ opacity: 0; }
-.nav-toggle.open .bar:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
+/**********************************************************
+  3) BARRE DE MENU FIXE EN HAUT
+**********************************************************/
+.site-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-h);
+  z-index: 10000;
 
-/********************************************************** 4) OVERLAY + MENU DÉROULANT (DRAWER) **********************************************************/
-.overlay{ position: fixed; inset: 0; background: rgba(0,0,0,.45); backdrop-filter: blur(2px); opacity: 0; transition: opacity .25s ease; z-index: 9999; }
-.overlay.show{ opacity: 1; }
-.overlay[hidden]{ display: none !important; }
-.drawer{ position: fixed; top: 70px; left: 16px; height: auto; width: max-content; min-width: 220px; background: var(--menu-bg); color: #fff; border-radius: 10px; box-shadow: 0 12px 30px rgba(0,0,0,.30); transform: translateX(-120%); transition: transform .3s ease; z-index: 10001; overflow: hidden; }
-.drawer.open{ transform: translateX(0); }
-.drawer-menu{ list-style: none; margin: 0; padding: 14px 18px; }
-.drawer-menu li + li{ margin-top: 8px; }
-.drawer-menu a{ display: block; padding: 8px 6px; color: #fff; text-decoration: none; font-size: 1.05rem; font-weight: 500; letter-spacing: .02em; border-radius: 6px; }
-.drawer-menu a:hover, .drawer-menu a:focus{ background: var(--menu-hover); }
-@media (max-width: 480px){ .drawer{ left: 12px; min-width: 200px; } }
+  background: rgba(246,241,239,.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
 
-/********************************************************** 5) PAGE INDEX — HERO ABSOLU **********************************************************/
-.page{ position: relative; min-height: 100vh; overflow: hidden; }
+.topbar{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 0 18px;
+}
+
+.topbar__brand{
+  color: #111;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+.topbar__menu{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.topbar__menu a{
+  display: inline-block;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.topbar__menu a:hover,
+.topbar__menu a:focus{
+  background: var(--menu-hover);
+}
+
+.topbar__menu a.is-active{
+  background: rgba(72,34,23,.10);
+}
+
+/* mobile : la barre reste une barre (pas de drawer), elle s’adapte */
+@media (max-width: 520px){
+  :root{ --header-h: 92px; } /* un peu plus haut si ça wrap */
+  .topbar{
+    align-items: flex-start;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .topbar__menu{ gap: 8px; }
+}
+
+/**********************************************************
+  4) PAGE INDEX — HERO ABSOLU
+**********************************************************/
+.page{
+  position: relative;
+  min-height: calc(100vh - var(--header-h));
+  overflow: hidden;
+}
 
 /* PHOTO — bas gauche */
-.home-hero__photo{ position: absolute; left: 0; bottom: 0; z-index: 1; }
-.home-hero__photo img{ width: min(760px, 62vw); height: auto; display: block; }
+.home-hero__photo{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.home-hero__photo img{
+  width: min(760px, 62vw);
+  height: auto;
+  display: block;
+}
 
-/* LOGO — haut droite */
+/* LOGO — haut droite (plus haut + moins gros) */
 .home-hero__brand{
-    position: absolute;
-    top: 40px;        /* remonte l'image plus haut */
-    right: 20px;      /* décale légèrement du bord droit si nécessaire */
-    z-index: 2;
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  z-index: 2;
 }
 .home-hero__logo{
-    width: min(720px, 60vw); /* réduit légèrement par rapport à avant */
-    max-width: 800px;       /* limite réelle */
-    height: auto;
-    display: block;
+  width: min(720px, 60vw);
+  max-width: 800px;
+  height: auto;
+  display: block;
 }
 
-/********************************************************** 6) FORMULAIRES **********************************************************/
-form{ display: grid; gap: 12px; margin-top: 16px; max-width: 640px; }
-label{ display: grid; gap: 6px; font-weight: 600; }
-input, textarea{ padding: 12px 14px; border: 1px solid rgba(0,0,0,.20); border-radius: 10px; background: rgba(255,255,255,.92); color: #111; font: inherit; outline: none; transition: box-shadow .15s ease, border-color .15s ease; }
-textarea{ resize: vertical; min-height: 120px; }
-input:focus, textarea:focus{ border-color: rgba(72,34,23,.45); box-shadow: 0 0 0 3px rgba(72,34,23,.12); }
-.btn-gold{ border: none; background: #F4C430; color: #111; font-weight: 800; padding: 12px 26px; border-radius: 999px; cursor: pointer; box-shadow: 0 6px 16px rgba(0,0,0,.14); transition: background .15s ease, transform .02s ease; }
+/**********************************************************
+  5) FORMULAIRES
+**********************************************************/
+form{
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+  max-width: 640px;
+}
+label{
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+}
+input, textarea{
+  padding: 12px 14px;
+  border: 1px solid rgba(0,0,0,.20);
+  border-radius: 10px;
+  background: rgba(255,255,255,.92);
+  color: #111;
+  font: inherit;
+  outline: none;
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+textarea{
+  resize: vertical;
+  min-height: 120px;
+}
+input:focus, textarea:focus{
+  border-color: rgba(72,34,23,.45);
+  box-shadow: 0 0 0 3px rgba(72,34,23,.12);
+}
+.btn-gold{
+  border: none;
+  background: #F4C430;
+  color: #111;
+  font-weight: 800;
+  padding: 12px 26px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,.14);
+  transition: background .15s ease, transform .02s ease;
+}
 .btn-gold:hover{ background: #e3b82a; }
 .btn-gold:active{ transform: translateY(1px); }
 
-/********************************************************** 7) FOOTER **********************************************************/
-.site-footer{ position: relative; z-index: 3; padding: 40px 5%; text-align: left; }
+/**********************************************************
+  6) FOOTER
+**********************************************************/
+.site-footer{
+  position: relative;
+  z-index: 3;
+  padding: 40px 5%;
+  text-align: left;
+}
 .site-footer small{ opacity: .9; }
 
-/********************************************************** 8) UTILITAIRES **********************************************************/
+/**********************************************************
+  7) UTILITAIRES
+**********************************************************/
 .container{ max-width: 1100px; margin-inline: auto; }
-body.menu-open{ overflow: hidden; }
 :focus-visible{ outline: 3px solid rgba(72,34,23,.28); outline-offset: 3px; }
 
-/********************************************************** 9) MOBILE — RESPONSIVE **********************************************************/
+/**********************************************************
+  8) MOBILE — on annule l'absolu du hero pour éviter les débordements
+**********************************************************/
 @media (max-width: 820px){
-    .page{ overflow: visible; min-height: auto; padding-top: 90px; }
-    .home-hero__brand, .home-hero__photo{ position: static; }
-    .home-hero__brand{ display: flex; justify-content: center; margin-top: 30px; }
-    .home-hero__photo{ display: flex; justify-content: center; margin-top: 16px; }
-    .home-hero__logo, .home-hero__photo img{ width: min(560px, 90%); }
+  .page{
+    overflow: visible;
+    min-height: auto;
+    padding-top: 0;
+  }
+  .home-hero__brand, .home-hero__photo{ position: static; }
+  .home-hero__brand{ display: flex; justify-content: center; margin-top: 30px; }
+  .home-hero__photo{ display: flex; justify-content: center; margin-top: 16px; }
+  .home-hero__logo, .home-hero__photo img{ width: min(560px, 90%); }
 }
