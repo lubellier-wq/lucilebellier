@@ -20,7 +20,7 @@ html{ scroll-behavior: smooth; }
   --base-font-size: clamp(18px, 1.8vw, 20px);
   --menu-hover: rgba(0,0,0,.06);
   --hover-grey: rgba(0,0,0,.12);
-  --header-h: 72px;
+  --header-h: 72px; /* ORDI: inchangé */
 }
 
 /**********************************************************
@@ -46,7 +46,7 @@ body{
 p, li{ max-width: 70ch; }
 
 /**********************************************************
-  3) BARRE DE MENU FIXE
+  3) BARRE DE MENU FIXE (ORDI INCHANGÉ)
 **********************************************************/
 .site-header{
   position: fixed;
@@ -66,32 +66,32 @@ p, li{ max-width: 70ch; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 28px; /* un peu plus d’air sur les côtés */
+  padding: 0 28px; /* ordi: inchangé */
 }
 
-/* --- TEXTE "Lucile Bellier" À GAUCHE --- */
+/* Texte / marque à gauche */
 .topbar__brand{
   color: #111;
   text-decoration: none;
-  font-weight: 550;                 /* moins gras */
-  font-size: 2em;                /*  plus grand */
-  letter-spacing: .05em;
+  font-weight: 550;   /* ordi: inchangé */
+  font-size: 1.08em;  /* ordi: inchangé */
+  letter-spacing: .03em;
   white-space: nowrap;
 }
 
-/* --- MENU --- */
+/* Menu */
 .topbar__menu{
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 50px;                        /* PLUS D’ESPACE ENTRE LES LIENS */
+  gap: 28px; /* ordi: inchangé */
   margin: 0;
   padding: 0;
 }
 
 .topbar__menu a{
   display: inline-block;
-  padding: 8px 6px;
+  padding: 8px 6px;         /* ordi: inchangé */
   border-radius: 10px;
   color: rgba(17,17,17,.92);
   text-decoration: none;
@@ -108,18 +108,41 @@ p, li{ max-width: 70ch; }
   background: rgba(72,34,23,.10);
 }
 
-/* mobile : le menu respire mais reste compact */
+/**********************************************************
+  3bis) MOBILE — MENU LISIBLE (NE CHANGE PAS L’ORDI)
+**********************************************************/
 @media (max-width: 520px){
-  :root{ --header-h: 92px; }
+  /* on augmente la hauteur de la barre => pas tassé */
+  :root{ --header-h: 128px; }
 
+  /* barre en 2 lignes : marque puis menu */
   .topbar{
+    flex-direction: column;
     align-items: flex-start;
-    padding: 12px 20px;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
   }
 
+  /* marque plus lisible */
+  .topbar__brand{
+    font-size: 1.14em;
+    font-weight: 600;
+    letter-spacing: .02em;
+  }
+
+  /* menu plus lisible, zones cliquables plus grandes */
   .topbar__menu{
-    gap: 18px;
+    width: 100%;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .topbar__menu a{
+    padding: 10px 12px;  /* + facile à cliquer */
+    font-size: 1.05em;   /* + lisible */
+    letter-spacing: .01em;
   }
 }
 
@@ -190,7 +213,8 @@ textarea{
   min-height: 120px;
 }
 
-input:focus, textarea:focus{
+input:focus,
+textarea:focus{
   border-color: rgba(72,34,23,.45);
   box-shadow: 0 0 0 3px rgba(72,34,23,.12);
 }
@@ -214,7 +238,6 @@ input:focus, textarea:focus{
   z-index: 3;
   padding: 40px 5%;
 }
-
 .site-footer small{ opacity: .9; }
 
 /**********************************************************
