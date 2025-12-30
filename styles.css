@@ -84,7 +84,7 @@ p, li{ max-width: 70ch; }
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 28px;                        /* PLUS D’ESPACE ENTRE LES LIENS */
+  gap: 30px;                        /* PLUS D’ESPACE ENTRE LES LIENS */
   margin: 0;
   padding: 0;
 }
