@@ -1,16 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact – Lucile Bellier</title>
-  <link rel="stylesheet" href="styles.css">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 
 <body>
   <header class="site-header">
-    <nav class="topbar">
+    <nav class="topbar" aria-label="Navigation principale">
       <a class="topbar__brand" href="index.html">Lucile Bellier</a>
+
       <ul class="topbar__menu">
         <li><a href="index.html">Accueil</a></li>
         <li><a href="apropos.html">À propos</a></li>
@@ -20,13 +24,32 @@
     </nav>
   </header>
 
-  <main>
+  <!-- IMPORTANT : class="page-content" pour activer les marges -->
+  <main class="page-content">
     <h1>Contact</h1>
 
-    <p>N'hésitez à me contacter pour toute question</p>
+    <p>N'hésitez pas à me contacter pour toute question.</p>
 
-   
-    <p>© Tous droits réservés</p>
+    <!-- Option : formulaire (tu peux supprimer si tu ne veux pas) -->
+    <form action="mailto:ton@email.com" method="post" enctype="text/plain">
+      <label>Nom
+        <input type="text" name="Nom" autocomplete="name">
+      </label>
+
+      <label>Email
+        <input type="email" name="Email" autocomplete="email">
+      </label>
+
+      <label>Message
+        <textarea name="Message"></textarea>
+      </label>
+
+      <button class="btn-gold" type="submit">Envoyer</button>
+    </form>
   </main>
+
+  <footer class="site-footer">
+    <small>© <span id="year"></span> Tous droits réservés</small>
+  </footer>
 </body>
 </html>
