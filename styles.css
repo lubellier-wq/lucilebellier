@@ -79,6 +79,20 @@ p, li{ max-width: 70ch; }
   white-space: nowrap;
 }
 
+/* Logo + texte dans la marque */
+.topbar__brand{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+/* logo adaptatif à la taille du texte */
+.topbar__brand .brand-logo{
+  height: 1em;
+  width: auto;
+  display: block;
+}
+
 /* Menu */
 .topbar__menu{
   list-style: none;
