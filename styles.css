@@ -74,7 +74,7 @@ p, li{ max-width: 70ch; }
   color: #111;
   text-decoration: none;
   font-weight: 550;   /* ordi: inchangé */
-  font-size: 1.8em;  /* ordi: inchangé */
+  font-size: 1.8em;   /* ordi: inchangé */
   letter-spacing: .03em;
   white-space: nowrap;
 }
@@ -106,44 +106,6 @@ p, li{ max-width: 70ch; }
 
 .topbar__menu a.is-active{
   background: rgba(72,34,23,.10);
-}
-
-/**********************************************************
-  3bis) MOBILE — MENU LISIBLE (NE CHANGE PAS L’ORDI)
-**********************************************************/
-@media (max-width: 520px){
-  /* on augmente la hauteur de la barre => pas tassé */
-  :root{ --header-h: 128px; }
-
-  /* barre en 2 lignes : marque puis menu */
-  .topbar{
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 16px;
-  }
-
-  /* marque plus lisible */
-  .topbar__brand{
-    font-size: 1.14em;
-    font-weight: 600;
-    letter-spacing: .02em;
-  }
-
-  /* menu plus lisible, zones cliquables plus grandes */
-  .topbar__menu{
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 12px;
-  }
-
-  .topbar__menu a{
-    padding: 10px 12px;  /* + facile à cliquer */
-    font-size: 1.05em;   /* + lisible */
-    letter-spacing: .01em;
-  }
 }
 
 /**********************************************************
@@ -250,7 +212,8 @@ textarea:focus{
 }
 
 /**********************************************************
-  8) MOBILE — HERO NON ABSOLU
+  8) MOBILE/TABLETTE — HERO NON ABSOLU
+  (inchangé : utile jusqu'à 820px, puis on override en <=520px)
 **********************************************************/
 @media (max-width: 820px){
   .page{
@@ -281,41 +244,52 @@ textarea:focus{
   }
 }
 
-
 /**********************************************************
-  MOBILE UNIQUEMENT — MENU 1 LIGNE + HERO (photo bas-gauche, logo haut-centre)
+  MOBILE UNIQUEMENT (<= 520px)
+  - "Lucile Bellier" au-dessus
+  - menu en dessous sur UNE SEULE LIGNE
+  - hero spécial mobile (photo bas-gauche, logo haut-centre)
 **********************************************************/
 @media (max-width: 520px){
 
-  /* 1) MENU SUR UNE SEULE LIGNE (sans toucher l’ordi) */
-  :root{ --header-h: 72px; } /* garde une barre fine sur mobile */
+  /* 1) HEADER EN 2 LIGNES : marque puis menu sur UNE SEULE LIGNE */
+  :root{ --header-h: 118px; } /* assez de place pour 2 lignes */
 
   .topbar{
-    flex-direction: row;            /* 1 seule ligne */
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 0 12px;
+    flex-direction: column;       /* <<< marque au-dessus */
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
   }
 
-  /* le menu ne revient jamais à la ligne */
+  .topbar__brand{
+    font-size: 1.14em;
+    font-weight: 600;
+    letter-spacing: .02em;
+  }
+
+  /* menu : UNE SEULE LIGNE, scroll si nécessaire */
   .topbar__menu{
-    flex-wrap: nowrap;              /* <<< empêche Contact de descendre */
-    gap: 14px;
-    overflow-x: auto;               /* si ça ne tient pas => scroll horizontal discret */
+    width: 100%;
+    flex-wrap: nowrap;            /* <<< une seule ligne */
+    justify-content: flex-start;
+    gap: 12px;
+    overflow-x: auto;             /* <<< si ça ne tient pas => scroll horizontal */
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
   .topbar__menu::-webkit-scrollbar{ display: none; }
 
   .topbar__menu a{
-    white-space: nowrap;
-    padding: 10px 10px;            /* zone cliquable + grande */
+    white-space: nowrap;          /* <<< pas de retour à la ligne dans les items */
+    padding: 10px 12px;
     font-size: 1.02em;
+    letter-spacing: .01em;
   }
 
-  /* 2) INDEX : on remet une mise en page "hero" spéciale mobile
-        (ça override ton bloc @media (max-width: 820px) qui mettait tout en static) */
+  /* 2) INDEX : hero spécial mobile
+        (override le @media (max-width: 820px) qui mettait tout en static) */
 
   /* photo en bas à gauche de l'écran */
   .home-hero__photo{
@@ -336,7 +310,7 @@ textarea:focus{
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    top: calc(var(--header-h) + 14px);   /* <<< pas collé à la barre */
+    top: calc(var(--header-h) + 14px);   /* pas collé à la barre */
     right: auto;
     z-index: 2;
     pointer-events: none;
@@ -344,9 +318,8 @@ textarea:focus{
   .home-hero__logo{
     width: min(82vw, 420px);
     height: auto;
-    max-height: calc(100vh - var(--header-h) - 180px); /* évite d’être coupé */
+    max-height: calc(100vh - var(--header-h) - 180px);
     object-fit: contain;
     display: block;
   }
 }
-
