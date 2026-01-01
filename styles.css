@@ -386,3 +386,11 @@ a[href*="instagram.com"]{
 
   pointer-events: none; /* ne gêne pas les clics */
 }
+
+@media (max-width: 520px){
+  .site-copyright{
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.7em;
+  }
+}
