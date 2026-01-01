@@ -342,3 +342,16 @@ textarea:focus{
     display: block;
   }
 }
+
+
+
+
+/* Liens Instagram – texte cliquable sans URL visible */
+a[href*="instagram.com"]{
+  color: inherit;
+  text-decoration: none;
+}
+
+a[href*="instagram.com"]:hover{
+  text-decoration: underline;
+}
