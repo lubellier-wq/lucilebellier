@@ -394,3 +394,30 @@ a[href*="instagram.com"]{
     font-size: 0.7em;
   }
 }
+
+
+/* COPYRIGHT FIXE — BAS DROITE ÉCRAN */
+.site-copyright{
+  position: fixed !important;
+  bottom: 12px !important;
+  right: 14px !important;
+  left: auto !important;
+  top: auto !important;
+
+  z-index: 99999;
+
+  font-size: 0.75em;
+  opacity: 0.65;
+  color: inherit;
+
+  pointer-events: none;
+}
+
+
+@media (max-width: 520px){
+  .site-copyright{
+    bottom: 10px !important;
+    right: 10px !important;
+    font-size: 0.7em;
+  }
+}
