@@ -355,3 +355,20 @@ a[href*="instagram.com"]{
 a[href*="instagram.com"]:hover{
   text-decoration: underline;
 }
+
+
+/* CONTACT — lien Instagram toujours visible */
+a[href*="instagram.com"]{
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* CONTACT — téléphone cliquable, style cohérent (mobile) */
+@media (max-width: 520px){
+  a[href^="tel:"]{
+    color: inherit;                 /* enlève le bleu */
+    text-decoration: underline;     /* montre que c'est cliquable */
+    text-underline-offset: 3px;
+  }
+}
