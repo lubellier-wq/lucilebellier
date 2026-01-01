@@ -372,3 +372,17 @@ a[href*="instagram.com"]{
     text-underline-offset: 3px;
   }
 }
+
+/* Copyright fixe en bas à droite */
+.site-copyright{
+  position: fixed;
+  bottom: 12px;
+  right: 14px;
+  z-index: 9999;
+
+  font-size: 0.75em;
+  opacity: 0.65;
+  color: inherit;
+
+  pointer-events: none; /* ne gêne pas les clics */
+}
