@@ -7,69 +7,6 @@
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
-
-  <!-- CSS uniquement pour les carrousels de cette page -->
-  <style>
-    .tenue{
-      margin: 28px 0;
-    }
-    .tenue-titre{
-      margin: 0 0 12px;
-    }
-
-    .carousel{
-      position: relative;
-      display: grid;
-      grid-template-columns: 44px 1fr 44px;
-      gap: 10px;
-      align-items: center;
-      max-width: 900px;
-    }
-
-    /* ✅ aucun fond ici */
-    .carousel-viewport{
-      overflow: hidden;
-      border-radius: 14px;
-      background: transparent;
-    }
-
-    .carousel-track{
-      display: flex;
-      transition: transform 320ms ease;
-      will-change: transform;
-    }
-
-    /* ✅ aucun fond sur l'image */
-    .carousel-track img{
-      flex: 0 0 100%;
-      width: 100%;
-      height: 420px;
-      object-fit: contain;     /* on voit l'image entière */
-      background: transparent; /* pas de blanc ajouté */
-      display: block;
-    }
-
-    .carousel-btn{
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,.25);
-      background: rgba(255,255,255,.75);
-      cursor: pointer;
-      font-size: 28px;
-      line-height: 1;
-    }
-
-    .carousel-btn:disabled{
-      opacity: .35;
-      cursor: default;
-    }
-
-    @media (max-width: 700px){
-      .carousel-track img{ height: 320px; }
-    }
-  </style>
 </head>
 
 <body>
@@ -96,7 +33,7 @@
       <h2 class="tenue-titre">Ensemble en soie sauvage</h2>
 
       <div class="carousel" data-carousel>
-        <button class="carousel-btn prev" type="button" aria-label="Photo précédente" data-prev>‹</button>
+        <button class="carousel-btn prev" type="button" aria-label="Photo précédente" data-prev>&lt;</button>
 
         <div class="carousel-viewport">
           <div class="carousel-track" data-track>
@@ -107,7 +44,7 @@
           </div>
         </div>
 
-        <button class="carousel-btn next" type="button" aria-label="Photo suivante" data-next>›</button>
+        <button class="carousel-btn next" type="button" aria-label="Photo suivante" data-next>&gt;</button>
       </div>
     </section>
 
@@ -121,7 +58,6 @@
     © 2026 Tous droits réservés
   </div>
 
-  <!-- JS carrousel -->
   <script>
     (function () {
       function setupCarousel(root) {
