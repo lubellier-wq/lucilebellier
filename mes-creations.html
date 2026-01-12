@@ -15,7 +15,61 @@
   © 2026 Tous droits réservés
 </div>
 
-  
+
+
+<script>
+  (function () {
+    function setupCarousel(root) {
+      const track = root.querySelector("[data-track]");
+      const imgs = Array.from(track.querySelectorAll("img"));
+      const prevBtn = root.querySelector("[data-prev]");
+      const nextBtn = root.querySelector("[data-next]");
+      let index = 0;
+
+      function update() {
+        track.style.transform = "translateX(" + (-index * 100) + "%)";
+        prevBtn.disabled = (index === 0);
+        nextBtn.disabled = (index === imgs.length - 1);
+      }
+
+      prevBtn.addEventListener("click", () => {
+        index = Math.max(0, index - 1);
+        update();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        index = Math.min(imgs.length - 1, index + 1);
+        update();
+      });
+
+      let startX = null;
+      let dx = 0;
+
+      root.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+        dx = 0;
+      }, { passive: true });
+
+      root.addEventListener("touchmove", (e) => {
+        if (startX === null) return;
+        dx = e.touches[0].clientX - startX;
+      }, { passive: true });
+
+      root.addEventListener("touchend", () => {
+        if (startX === null) return;
+        if (dx < -40) index = Math.min(imgs.length - 1, index + 1);
+        if (dx > 40) index = Math.max(0, index - 1);
+        startX = null;
+        update();
+      });
+
+      update();
+    }
+
+    document.querySelectorAll("[data-carousel]").forEach(setupCarousel);
+  })();
+</script>
+
 <body>
   <header class="site-header">
     <nav class="topbar" aria-label="Navigation principale">
