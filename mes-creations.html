@@ -3,120 +3,175 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projets – Lucile Bellier</title>
+  <title>Mes créations – Lucile Bellier</title>
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
-</head>
 
-
-<div class="site-copyright">
-  © 2026 Tous droits réservés
-</div>
-
-
-
-<script>
-  (function () {
-    function setupCarousel(root) {
-      const track = root.querySelector("[data-track]");
-      const imgs = Array.from(track.querySelectorAll("img"));
-      const prevBtn = root.querySelector("[data-prev]");
-      const nextBtn = root.querySelector("[data-next]");
-      let index = 0;
-
-      function update() {
-        track.style.transform = "translateX(" + (-index * 100) + "%)";
-        prevBtn.disabled = (index === 0);
-        nextBtn.disabled = (index === imgs.length - 1);
-      }
-
-      prevBtn.addEventListener("click", () => {
-        index = Math.max(0, index - 1);
-        update();
-      });
-
-      nextBtn.addEventListener("click", () => {
-        index = Math.min(imgs.length - 1, index + 1);
-        update();
-      });
-
-      let startX = null;
-      let dx = 0;
-
-      root.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
-        dx = 0;
-      }, { passive: true });
-
-      root.addEventListener("touchmove", (e) => {
-        if (startX === null) return;
-        dx = e.touches[0].clientX - startX;
-      }, { passive: true });
-
-      root.addEventListener("touchend", () => {
-        if (startX === null) return;
-        if (dx < -40) index = Math.min(imgs.length - 1, index + 1);
-        if (dx > 40) index = Math.max(0, index - 1);
-        startX = null;
-        update();
-      });
-
-      update();
+  <!-- CSS uniquement pour les carrousels de cette page -->
+  <style>
+    .tenue{
+      margin: 28px 0;
+    }
+    .tenue-titre{
+      margin: 0 0 12px;
     }
 
-    document.querySelectorAll("[data-carousel]").forEach(setupCarousel);
-  })();
-</script>
+    .carousel{
+      position: relative;
+      display: grid;
+      grid-template-columns: 44px 1fr 44px;
+      gap: 10px;
+      align-items: center;
+      max-width: 900px;
+    }
+
+    .carousel-viewport{
+      overflow: hidden;
+      border-radius: 14px;
+      background: rgba(0,0,0,0.03);
+    }
+
+    .carousel-track{
+      display: flex;
+      transition: transform 320ms ease;
+      will-change: transform;
+    }
+
+    .carousel-track img{
+      flex: 0 0 100%;
+      width: 100%;
+      height: 420px;        /* plus petit mais lisible */
+      object-fit: contain;  /* ✅ on voit l'image entière */
+      background: rgba(255,255,255,0.6);
+      display: block;
+    }
+
+    .carousel-btn{
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.25);
+      background: rgba(255,255,255,.75);
+      cursor: pointer;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .carousel-btn:disabled{
+      opacity: .35;
+      cursor: default;
+    }
+
+    @media (max-width: 700px){
+      .carousel-track img{ height: 320px; }
+    }
+  </style>
+</head>
 
 <body>
   <header class="site-header">
     <nav class="topbar" aria-label="Navigation principale">
-    <a class="topbar__brand" href="index.html">
-  <span>Lucile Bellier</span>
-  <img src="favicon.png" alt="Logo Lucile Bellier" class="brand-logo">
-</a>
-
-
+      <a class="topbar__brand" href="index.html">
+        <span>Lucile Bellier</span>
+        <img src="favicon.png" alt="Logo Lucile Bellier" class="brand-logo">
+      </a>
 
       <ul class="topbar__menu">
-  <li><a href="apropos.html">À propos</a></li>
-  <li><a href="mes-creations.html" class="is-active">Mes créations</a></li>
-  <li><a href="votreprojet.html">Votre projet</a></li>
-  <li><a href="contact.html">Contact</a></li>
-</ul>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="mes-creations.html" class="is-active">Mes créations</a></li>
+        <li><a href="votreprojet.html">Votre projet</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
-  <!-- IMPORTANT : class="page-content" pour activer les marges -->
   <main class="page-content">
+    <h1>Créations sur mesure</h1>
 
-   <h1>Créations sur mesure</h1>
-    
     <section class="tenue">
-  <h2 class="tenue-titre">Ensemble en soie sauvage</h2>
+      <h2 class="tenue-titre">Ensemble en soie sauvage</h2>
 
-  <div class="carousel" data-carousel>
-    <button class="carousel-btn prev" type="button" aria-label="Photo précédente" data-prev>‹</button>
+      <div class="carousel" data-carousel>
+        <button class="carousel-btn prev" type="button" aria-label="Photo précédente" data-prev>‹</button>
 
-    <div class="carousel-viewport" data-viewport>
-      <div class="carousel-track" data-track>
-        <img src="faustine1.png" alt="Tenue 1 — photo 1" loading="lazy">
-        <img src="faustine2.png" alt="Tenue 1 — photo 2" loading="lazy">
-        <img src="faustine3.png" alt="Tenue 1 — photo 3" loading="lazy">
-        <img src="faustine4.png" alt="Tenue 1 — photo 3" loading="lazy">
+        <div class="carousel-viewport">
+          <div class="carousel-track" data-track>
+            <img src="faustine1.png" alt="Ensemble en soie sauvage — photo 1" loading="lazy">
+            <img src="faustine2.png" alt="Ensemble en soie sauvage — photo 2" loading="lazy">
+            <img src="faustine3.png" alt="Ensemble en soie sauvage — photo 3" loading="lazy">
+            <img src="faustine4.png" alt="Ensemble en soie sauvage — photo 4" loading="lazy">
+          </div>
+        </div>
+
+        <button class="carousel-btn next" type="button" aria-label="Photo suivante" data-next>›</button>
       </div>
-    </div>
-
-    <button class="carousel-btn next" type="button" aria-label="Photo suivante" data-next>›</button>
-  </div>
-</section>
-
+    </section>
 
     <p>test.1</p>
 
     <h2>Pièce sur mesure</h2>
     <p>test.2</p>
-   
   </main>
+
+  <div class="site-copyright">
+    © 2026 Tous droits réservés
+  </div>
+
+  <!-- JS carrousel : doit être dans le body, tout en bas -->
+  <script>
+    (function () {
+      function setupCarousel(root) {
+        const track = root.querySelector("[data-track]");
+        const imgs = Array.from(track.querySelectorAll("img"));
+        const prevBtn = root.querySelector("[data-prev]");
+        const nextBtn = root.querySelector("[data-next]");
+        let index = 0;
+
+        function update() {
+          track.style.transform = "translateX(" + (-index * 100) + "%)";
+          prevBtn.disabled = (index === 0);
+          nextBtn.disabled = (index === imgs.length - 1);
+        }
+
+        prevBtn.addEventListener("click", () => {
+          index = Math.max(0, index - 1);
+          update();
+        });
+
+        nextBtn.addEventListener("click", () => {
+          index = Math.min(imgs.length - 1, index + 1);
+          update();
+        });
+
+        // Swipe mobile
+        let startX = null;
+        let dx = 0;
+
+        root.addEventListener("touchstart", (e) => {
+          startX = e.touches[0].clientX;
+          dx = 0;
+        }, { passive: true });
+
+        root.addEventListener("touchmove", (e) => {
+          if (startX === null) return;
+          dx = e.touches[0].clientX - startX;
+        }, { passive: true });
+
+        root.addEventListener("touchend", () => {
+          if (startX === null) return;
+          if (dx < -40) index = Math.min(imgs.length - 1, index + 1);
+          if (dx > 40) index = Math.max(0, index - 1);
+          startX = null;
+          update();
+        });
+
+        update();
+      }
+
+      document.querySelectorAll("[data-carousel]").forEach(setupCarousel);
+    })();
+  </script>
+</body>
+</html>
