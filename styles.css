@@ -421,3 +421,65 @@ a[href*="instagram.com"]{
     font-size: 0.7em;
   }
 }
+
+
+
+/* ========== */
+
+/* ===== Carrousels Tenues (Mes créations) ===== */
+.tenue{
+  max-width: 1000px;
+  margin: 28px auto;
+  padding: 0 16px;
+}
+
+.tenue-titre{
+  margin: 0 0 12px;
+}
+
+.carousel{
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 10px;
+}
+
+.carousel-viewport{
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.carousel-track{
+  display: flex;
+  transition: transform 320ms ease;
+  will-change: transform;
+}
+
+.carousel-track img{
+  width: 100%;
+  flex: 0 0 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-btn{
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.25);
+  background: rgba(255,255,255,.75);
+  cursor: pointer;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.carousel-btn:disabled{
+  opacity: .35;
+  cursor: default;
+}
+
+@media (max-width: 700px){
+  .carousel-track img{ height: 380px; }
+}
