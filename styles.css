@@ -374,26 +374,20 @@ a[href*="instagram.com"]{
 /**********************************************************
   11) CARROUSEL — MES CRÉATIONS
 **********************************************************/
-.tenue{
-  margin: 28px 0;
-}
-.tenue-titre{
-  margin: 0 0 12px;
-}
-
 .carousel{
   position: relative;
-  max-width: 900px;
+  width: min(900px, 100%);
 }
 
-
 .carousel-viewport{
+  width: 100%;
   overflow: hidden;
   border-radius: 14px;
-  background: rgba(0,0,0,0.03); /* léger fond neutre (pas blanc) */
+  background: transparent;
 }
 
 .carousel-track{
+  width: 100%;
   display: flex;
   transition: transform 320ms ease;
   will-change: transform;
@@ -402,42 +396,42 @@ a[href*="instagram.com"]{
 .carousel-track img{
   flex: 0 0 100%;
   width: 100%;
+  max-width: 100%;
   height: 420px;
-  object-fit: contain;     /* ✅ on voit l'image entière */
-  background: transparent; /* ✅ enlève le fond blanc derrière tes PNG */
+  object-fit: contain;
+  background: transparent;
   display: block;
 }
 
+/* Flèches simples, proches de la photo */
 .carousel-btn{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 5;
 
-  background: none;      /* ❌ plus de rond blanc */
+  background: none;
   border: none;
-  padding: 0;
+  padding: 0 6px;
 
-  font-size: 40px;       /* taille de la flèche */
-  color: #111;           /* noir */
-  cursor: pointer;
+  color: #111;
+  font-size: 44px;
   line-height: 1;
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
 }
 
-.carousel-btn.prev{
-  left: 8px;             /* distance depuis le bord gauche de la photo */
-}
-
-.carousel-btn.next{
-  right: 8px;            /* distance depuis le bord droit de la photo */
-}
+.carousel-btn.prev{ left: 6px; }
+.carousel-btn.next{ right: 6px; }
 
 .carousel-btn:disabled{
   opacity: 0.25;
   cursor: default;
 }
 
-
-
 @media (max-width: 700px){
   .carousel-track img{ height: 320px; }
+  .carousel-btn{ font-size: 40px; }
 }
