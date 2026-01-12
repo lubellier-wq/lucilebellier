@@ -20,7 +20,7 @@ html{ scroll-behavior: smooth; }
   --base-font-size: clamp(18px, 1.8vw, 20px);
   --menu-hover: rgba(0,0,0,.06);
   --hover-grey: rgba(0,0,0,.12);
-  --header-h: 72px; /* ORDI: inchangé */
+  --header-h: 72px; /* ORDI */
 }
 
 /**********************************************************
@@ -46,7 +46,7 @@ body{
 p, li{ max-width: 70ch; }
 
 /**********************************************************
-  3) BARRE DE MENU FIXE (ORDI INCHANGÉ)
+  3) BARRE DE MENU FIXE
 **********************************************************/
 .site-header{
   position: fixed;
@@ -66,21 +66,18 @@ p, li{ max-width: 70ch; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 28px; /* ordi: inchangé */
+  padding: 0 28px;
 }
 
-/* Texte / marque à gauche */
+/* Marque */
 .topbar__brand{
   color: #111;
   text-decoration: none;
-  font-weight: 550;   /* ordi: inchangé */
-  font-size: 1.8em;   /* ordi: inchangé */
+  font-weight: 550;
+  font-size: 1.8em;
   letter-spacing: .03em;
   white-space: nowrap;
-}
 
-/* Logo + texte dans la marque */
-.topbar__brand{
   display: inline-flex;
   align-items: center;
   gap: 0.4em;
@@ -98,14 +95,14 @@ p, li{ max-width: 70ch; }
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 60px; /* ordi: inchangé */
+  gap: 60px;
   margin: 0;
   padding: 0;
 }
 
 .topbar__menu a{
   display: inline-block;
-  padding: 8px 6px;         /* ordi: inchangé */
+  padding: 8px 6px;
   border-radius: 10px;
   color: rgba(17,17,17,.92);
   text-decoration: none;
@@ -207,7 +204,7 @@ textarea:focus{
 }
 
 /**********************************************************
-  6) FOOTER
+  6) FOOTER (si tu l’utilises ailleurs)
 **********************************************************/
 .site-footer{
   position: relative;
@@ -226,8 +223,7 @@ textarea:focus{
 }
 
 /**********************************************************
-  8) MOBILE/TABLETTE — HERO NON ABSOLU
-  (inchangé : utile jusqu'à 820px, puis on override en <=520px)
+  8) TABLETTE / MOBILE — HERO NON ABSOLU (<= 820px)
 **********************************************************/
 @media (max-width: 820px){
   .page{
@@ -260,17 +256,12 @@ textarea:focus{
 
 /**********************************************************
   MOBILE UNIQUEMENT (<= 520px)
-  - "Lucile Bellier" au-dessus
-  - menu en dessous sur UNE SEULE LIGNE
-  - hero spécial mobile (photo bas-gauche, logo haut-centre)
 **********************************************************/
 @media (max-width: 520px){
-
-  /* 1) HEADER EN 2 LIGNES : marque puis menu sur UNE SEULE LIGNE */
-  :root{ --header-h: 118px; } /* assez de place pour 2 lignes */
+  :root{ --header-h: 118px; }
 
   .topbar{
-    flex-direction: column;       /* <<< marque au-dessus */
+    flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     gap: 8px;
@@ -283,34 +274,26 @@ textarea:focus{
     letter-spacing: .02em;
   }
 
+  .topbar__menu{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: clamp(4px, 2.5vw, 10px);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .topbar__menu::-webkit-scrollbar{ display: none; }
 
+  .topbar__menu a{
+    white-space: nowrap;
+    padding: clamp(4px, 1.6vw, 8px) clamp(6px, 2vw, 12px);
+    font-size: clamp(0.9em, 3.6vw, 1.02em);
+    letter-spacing: 0;
+  }
 
-.topbar__menu{
-  width: 100%;
-  display: flex;
-  flex-wrap: nowrap;                 /* toujours sur une ligne */
-  justify-content: space-between;
-  gap: clamp(4px, 2.5vw, 10px);       /* espace adaptatif */
-  overflow-x: auto;                  /* scroll seulement si nécessaire */
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.topbar__menu::-webkit-scrollbar{ display: none; }
-
-.topbar__menu a{
-  white-space: nowrap;
-  padding: clamp(4px, 1.6vw, 8px) clamp(6px, 2vw, 12px);
-  font-size: clamp(0.9em, 3.6vw, 1.02em); /* s’adapte à la largeur */
-  letter-spacing: 0;
-}
-
-
-  
-
-  /* 2) INDEX : hero spécial mobile
-        (override le @media (max-width: 820px) qui mettait tout en static) */
-
-  /* photo en bas à gauche de l'écran */
+  /* INDEX : hero spécial mobile */
   .home-hero__photo{
     position: fixed;
     left: 0;
@@ -324,12 +307,11 @@ textarea:focus{
     display: block;
   }
 
-  /* logo en haut, centré, sous la barre avec un peu d'air */
   .home-hero__brand{
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    top: calc(var(--header-h) + 14px);   /* pas collé à la barre */
+    top: calc(var(--header-h) + 14px);
     right: auto;
     z-index: 2;
     pointer-events: none;
@@ -343,66 +325,34 @@ textarea:focus{
   }
 }
 
-
-
-
-/* Liens Instagram – texte cliquable sans URL visible */
-a[href*="instagram.com"]{
-  color: inherit;
-  text-decoration: none;
-}
-
-a[href*="instagram.com"]:hover{
-  text-decoration: underline;
-}
-
-
-/* CONTACT — lien Instagram toujours visible */
+/**********************************************************
+  9) LIENS INSTAGRAM / TEL
+**********************************************************/
+/* Instagram : texte cliquable, souligné */
 a[href*="instagram.com"]{
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-/* CONTACT — téléphone cliquable, style cohérent (mobile) */
+/* Téléphone cliquable : style cohérent sur mobile */
 @media (max-width: 520px){
   a[href^="tel:"]{
-    color: inherit;                 /* enlève le bleu */
-    text-decoration: underline;     /* montre que c'est cliquable */
+    color: inherit;
+    text-decoration: underline;
     text-underline-offset: 3px;
   }
 }
 
-/* Copyright fixe en bas à droite */
+/**********************************************************
+  10) COPYRIGHT FIXE — BAS DROITE
+**********************************************************/
 .site-copyright{
   position: fixed;
   bottom: 12px;
   right: 14px;
-  z-index: 9999;
-
-  font-size: 0.75em;
-  opacity: 0.65;
-  color: inherit;
-
-  pointer-events: none; /* ne gêne pas les clics */
-}
-
-@media (max-width: 520px){
-  .site-copyright{
-    bottom: 10px;
-    right: 10px;
-    font-size: 0.7em;
-  }
-}
-
-
-/* COPYRIGHT FIXE — BAS DROITE ÉCRAN */
-.site-copyright{
-  position: fixed !important;
-  bottom: 12px !important;
-  right: 14px !important;
-  left: auto !important;
-  top: auto !important;
+  left: auto;
+  top: auto;
 
   z-index: 99999;
 
@@ -413,20 +363,24 @@ a[href*="instagram.com"]{
   pointer-events: none;
 }
 
-
 @media (max-width: 520px){
   .site-copyright{
-    bottom: 10px !important;
-    right: 10px !important;
+    bottom: 10px;
+    right: 10px;
     font-size: 0.7em;
   }
 }
 
+/**********************************************************
+  11) CARROUSEL — MES CRÉATIONS
+**********************************************************/
+.tenue{
+  margin: 28px 0;
+}
+.tenue-titre{
+  margin: 0 0 12px;
+}
 
-
-/* =====CARROUSEL===== */
-
-/* Carrousel - Mes créations */
 .carousel{
   position: relative;
   display: grid;
@@ -439,20 +393,21 @@ a[href*="instagram.com"]{
 .carousel-viewport{
   overflow: hidden;
   border-radius: 14px;
-  background: rgba(0,0,0,0.03);
+  background: rgba(0,0,0,0.03); /* léger fond neutre (pas blanc) */
 }
 
 .carousel-track{
   display: flex;
   transition: transform 320ms ease;
+  will-change: transform;
 }
 
 .carousel-track img{
   flex: 0 0 100%;
   width: 100%;
-  height: 420px;      /* ↓ tu peux baisser à 340px si tu veux plus petit */
-  object-fit: contain; /* ✅ on voit l'image entière */
-  background: rgba(255,255,255,0.6);
+  height: 420px;
+  object-fit: contain;     /* ✅ on voit l'image entière */
+  background: transparent; /* ✅ enlève le fond blanc derrière tes PNG */
   display: block;
 }
 
@@ -465,6 +420,11 @@ a[href*="instagram.com"]{
   cursor: pointer;
   font-size: 28px;
   line-height: 1;
+}
+
+.carousel-btn:disabled{
+  opacity: .35;
+  cursor: default;
 }
 
 @media (max-width: 700px){
